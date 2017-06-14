@@ -33,7 +33,7 @@ if (!class_exists(' CustomLoginCustomizer')) {
          */
         public static function custom_login_theme_menu_item()
         {
-            if (is_multisite() && is_main_site()) return; // Do not use in main_network
+            if (is_multisite() && is_network_admin()) return; // Do not use in main_network
 
             $menu_slug_url = 'customize.php?autofocus[section]=custom_login_section';
             // We add simple autoFocus in multiSite - Url redirection do not play well
