@@ -48,7 +48,7 @@ if (!class_exists(' CustomLoginCustomizer')) {
         public static function custom_login_settings_customize_register($wp_customize)
         {
             $wp_customize->add_section('custom_login_section', array(
-                'title' => __('Login page', 'custom-login-settings'),
+                'title'    => __('Login page', 'custom-login-settings'),
                 'priority' => 35,
             ));
 
@@ -60,23 +60,23 @@ if (!class_exists(' CustomLoginCustomizer')) {
             ));
 
             $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'setting_login_logo_image', array(
-                'label' => __('Login logo', 'custom-login-settings'),
-                'description' => __('Ideal size: 110x110px, maximum size 150px  )', 'custom-login-settings'),
-                'section' => 'custom_login_section',
-                'settings' => 'setting_login_logo_image',
+                'label'       => __('Login logo', 'custom-login-settings'),
+                'description' => __('Ideal size: squared transparent png 110x110px, maximum size 150px  )', 'custom-login-settings'),
+                'section'     => 'custom_login_section',
+                'settings'    => 'setting_login_logo_image',
             )));
 
             //  =====================================================
             //  = Color Picker : setting_login_body_background      =
             //  =====================================================
             $wp_customize->add_setting('setting_login_body_background', array(
-                'default' => '#e8e8e7',
+                'default'           => '#e8e8e7',
                 'sanitize_callback' => 'sanitize_hex_color',
             ));
 
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_login_body_background', array(
-                'label' => __('Body background color', 'custom-login-settings'),
-                'section' => 'custom_login_section',
+                'label'    => __('Body background color', 'custom-login-settings'),
+                'section'  => 'custom_login_section',
                 'settings' => 'setting_login_body_background',
             )));
 
@@ -84,13 +84,13 @@ if (!class_exists(' CustomLoginCustomizer')) {
             //  = Color Picker : setting_form_label_color           =
             //  =====================================================
             $wp_customize->add_setting('setting_form_label_color', array(
-                'default' => '#72777c',
+                'default'           => '#72777c',
                 'sanitize_callback' => 'sanitize_hex_color',
             ));
 
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_label_color', array(
-                'label' => __('Body Default Font Colo', 'custom-login-settings'),
-                'section' => 'custom_login_section',
+                'label'    => __('Body Default Font Colo', 'custom-login-settings'),
+                'section'  => 'custom_login_section',
                 'settings' => 'setting_form_label_color',
             )));
 
@@ -102,11 +102,11 @@ if (!class_exists(' CustomLoginCustomizer')) {
             ));
 
             $wp_customize->add_control('setting_login_generic_error_message', array(
-                'label' => __('Error message', 'custom-login-settings'),
+                'label'       => __('Error message', 'custom-login-settings'),
                 'description' => __('For security reasons it\'s better to insert a generic message instead of precising "Invalid username" or "Invalid password".', 'custom-login-settings'),
-                'section' => 'custom_login_section',
-                'settings' => 'setting_login_generic_error_message',
-                'type' => 'text',
+                'section'     => 'custom_login_section',
+                'settings'    => 'setting_login_generic_error_message',
+                'type'        => 'text',
 
             ));
 
@@ -114,13 +114,13 @@ if (!class_exists(' CustomLoginCustomizer')) {
             //  = Color Picker : setting_form_button_text_color     =
             //  =====================================================
             $wp_customize->add_setting('setting_form_button_text_color', array(
-                'default' => '#ffffff',
+                'default'           => '#ffffff',
                 'sanitize_callback' => 'sanitize_hex_color',
             ));
 
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_button_text_color', array(
-                'label' => __('Button text color', 'custom-login-settings'),
-                'section' => 'custom_login_section',
+                'label'    => __('Button text color', 'custom-login-settings'),
+                'section'  => 'custom_login_section',
                 'settings' => 'setting_form_button_text_color',
             )));
 
@@ -128,13 +128,13 @@ if (!class_exists(' CustomLoginCustomizer')) {
             //  = Color Picker : setting_form_primary_color         =
             //  =====================================================
             $wp_customize->add_setting('setting_form_primary_color', array(
-                'default' => '#293550',
+                'default'           => '#293550',
                 'sanitize_callback' => 'sanitize_hex_color',
             ));
 
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_primary_color', array(
-                'label' => __('Button background color', 'custom-login-settings'),
-                'section' => 'custom_login_section',
+                'label'    => __('Button background color', 'custom-login-settings'),
+                'section'  => 'custom_login_section',
                 'settings' => 'setting_form_primary_color',
             )));
 
@@ -142,13 +142,13 @@ if (!class_exists(' CustomLoginCustomizer')) {
             //  = Color Picker : setting_form_input_border_color    =
             //  =====================================================
             $wp_customize->add_setting('setting_form_input_border_color', array(
-                'default' => '#e3e5e8',
+                'default'           => '#e3e5e8',
                 'sanitize_callback' => 'sanitize_hex_color',
             ));
 
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_input_border_color', array(
-                'label' => __('Input field color', 'custom-login-settings'),
-                'section' => 'custom_login_section',
+                'label'    => __('Input field color', 'custom-login-settings'),
+                'section'  => 'custom_login_section',
                 'settings' => 'setting_form_input_border_color',
             )));
 
@@ -157,11 +157,11 @@ if (!class_exists(' CustomLoginCustomizer')) {
             //  =====================================================
             $wp_customize->add_setting('setting_form_input_border_width', array('default' => '1px'));
             $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_form_input_border_width', array(
-                    'label' => __('Input field border width', 'custom-login-settings'),
-                    'section' => 'custom_login_section',
+                    'label'    => __('Input field border width', 'custom-login-settings'),
+                    'section'  => 'custom_login_section',
                     'settings' => 'setting_form_input_border_width',
-                    'type' => 'select',
-                    'choices' => array(
+                    'type'     => 'select',
+                    'choices'  => array(
                         '0px' => '0px',
                         '1px' => '1px',
                         '2px' => '2px',
@@ -173,15 +173,15 @@ if (!class_exists(' CustomLoginCustomizer')) {
             //  = Color Picker : setting_form_secondary_color       =
             //  =====================================================
             $wp_customize->add_setting('setting_form_secondary_color', array(
-                'default' => '#ffcc4d',
+                'default'           => '#ffcc4d',
                 'sanitize_callback' => 'sanitize_hex_color',
             ));
 
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_secondary_color', array(
-                'label' => __('Secondary color', 'custom-login-settings'),
+                'label'       => __('Secondary color', 'custom-login-settings'),
                 'description' => __('Messages border and Checkbox', 'custom-login-settings'),
-                'section' => 'custom_login_section',
-                'settings' => 'setting_form_secondary_color',
+                'section'     => 'custom_login_section',
+                'settings'    => 'setting_form_secondary_color',
 
             )));
 
@@ -193,11 +193,11 @@ if (!class_exists(' CustomLoginCustomizer')) {
             ));
 
             $wp_customize->add_control('setting_login_additional_css', array(
-                'label' => __('Additional CSS', 'custom-login-settings'),
+                'label'       => __('Additional CSS', 'custom-login-settings'),
                 'description' => __('', 'custom-login-settings'),
-                'section' => 'custom_login_section',
-                'settings' => 'setting_login_additional_css',
-                'type' => 'textarea',
+                'section'     => 'custom_login_section',
+                'settings'    => 'setting_login_additional_css',
+                'type'        => 'textarea',
                 'input_attrs' => array(
                     'class' => 'code',
                 )
