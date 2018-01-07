@@ -22,7 +22,7 @@ if ( !class_exists( ' GpLoginCustomizer' ) ) {
         {
             add_action( 'admin_menu', array( $this, 'add_menu_item' ) );
             // ADMIN : Register customize options
-            add_action( 'customize_register', array( $this, 'customize_register_settings' ) );
+            add_action( 'customize_register', array( $this, 'register_settings' ) );
             add_action( 'login_head', array( $this, 'logo_image' ) );
             add_action( 'login_headerurl', array( $this, 'logo_url' ) );
             add_action( 'login_headertitle', array( $this, 'logo_title' ) );
@@ -48,7 +48,7 @@ if ( !class_exists( ' GpLoginCustomizer' ) ) {
         //  =====================================================
         //  = ADMIN: Customize options                          =
         //  =====================================================
-        public function customize_register_settings( $wp_customize )
+        public function register_settings( $wp_customize )
         {
             $wp_customize->add_section( $this->section_handle, array(
                 'title'    => __( 'Login Customizer', self::$text_domain ),
