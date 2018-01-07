@@ -218,6 +218,7 @@ if ( !class_exists( ' GpLoginCustomizer' ) ) {
 
             $logo_image = get_theme_mod( 'setting_logo_image', has_site_icon() ? get_site_icon_url( 150 ) : esc_url( get_site_icon_url( 64, admin_url( 'images/w-logo-blue.png' ) ) ) );
             if ( !empty($logo_image) ) {
+                $logo_image_default_size = '150px';
                 $logo_image_size = getimagesize( $logo_image );
                 $logo_image_width = $logo_image_size[ 0 ] . 'px';
                 $logo_image_height = $logo_image_size[ 1 ] . 'px';
@@ -225,10 +226,12 @@ if ( !class_exists( ' GpLoginCustomizer' ) ) {
                 echo '<style type="text/css">
                     body.login h1 a {
                         background: url("' . $logo_image . '") center center no-repeat !important;
-                        -webkit-background-size: ' . $logo_image_width . ' ' . $logo_image_height . ' !important;
-                        background-size: ' . $logo_image_width . ' ' . $logo_image_height . ' !important;
+                        -webkit-background-size: ' . $logo_image_default_size . ' auto !important;
+                        background-size: ' . $logo_image_default_size . ' auto !important;
                         width: ' . $logo_image_width . ';
                         height:' . $logo_image_height . ';
+                        max-width:' . $logo_image_default_size . ';
+                        max-height:' . $logo_image_default_size . ';
                     }
                     </style>
                 ';
