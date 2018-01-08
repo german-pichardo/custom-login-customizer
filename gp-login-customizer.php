@@ -216,7 +216,7 @@ if ( !class_exists( ' GpLoginCustomizer' ) ) {
         public static function logo_image()
         {
 
-            $logo_image = get_theme_mod( 'setting_logo_image', has_site_icon() ? get_site_icon_url( 150 ) : esc_url( get_site_icon_url( 64, admin_url( 'images/w-logo-blue.png' ) ) ) );
+            $logo_image = get_theme_mod( 'setting_logo_image', has_site_icon() ? get_site_icon_url( 150 ) : esc_url( get_site_icon_url( 64, '' ) ) );
             if ( !empty($logo_image) ) {
                 $logo_image_default_size = '150px';
                 $logo_image_size = getimagesize( $logo_image );
