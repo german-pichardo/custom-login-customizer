@@ -229,7 +229,7 @@ if (!class_exists(' GpLoginCustomizer')) {
 
                 $is_ratio_69 = $logo_image_width > $logo_image_height;
 
-                $logo_background_size = $is_ratio_69 ? '60% auto' : ' auto 80%';
+                $logo_background_size = $is_ratio_69 ? '60% auto' : (is_object($logo_image_size) ? ' auto 80%' : 'contain');
                 $logo_padding_top = $is_ratio_69 ? '56.25%' : '75%';
 
                 echo '<style type="text/css">
