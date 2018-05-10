@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Gp Login Customizer
  * Description: Change default login URL, Title, Styles, Logo, etc. Go to : Appearance -> Themes -> Customize -> Login page
- * Version: 1.0
+ * Version: 1.0.1
  * Author: German Pichardo
  * Author URI: http://www.german-pichardo.com
  * Text Domain: custom-login-settings
@@ -59,7 +59,7 @@ if (!class_exists(' GpLoginCustomizer')) {
             //  = Image Upload    setting_logo_image          =
             //  =====================================================
             $wp_customize->add_setting('setting_logo_image', [
-                'default' => has_site_icon() ? get_site_icon_url(150) : esc_url(get_site_icon_url(64, admin_url('images/w-logo-blue.png'))),
+                'default' => has_site_icon() ? get_site_icon_url(150) : '',
             ]);
 
             $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'setting_logo_image', [
@@ -215,23 +215,34 @@ if (!class_exists(' GpLoginCustomizer')) {
         // Change default WP logo image (Site icon or fallback image)
         public static function logo_image()
         {
+            $logo_image = get_theme_mod('setting_logo_image');
 
-            $logo_image = get_theme_mod('setting_logo_image', has_site_icon() ? get_site_icon_url(150) : esc_url(get_site_icon_url(64, admin_url('images/w-logo-blue.png'))));
-            if (!empty($logo_image)) {
-                $logo_image_default_size = '150px';
+            if ($logo_image && !empty($logo_image)) {
                 $logo_image_size = getimagesize($logo_image);
-                $logo_image_width = $logo_image_size[0] . 'px';
-                $logo_image_height = $logo_image_size[1] . 'px';
+                $logo_image_width = $logo_image_size[0];
+                $logo_image_height = $logo_image_size[1];
+
+                $is_ratio_69 = $logo_image_width > $logo_image_height;
+
+                $logo_background_size = $is_ratio_69 ? '56.25% auto' : ' auto 75%';
+                $logo_padding_top = $is_ratio_69 ? '56.25%' : '75%';
 
                 echo '<style type="text/css">
                     body.login h1 a {
                         background: url("' . $logo_image . '") center center no-repeat !important;
-                        -webkit-background-size: ' . $logo_image_default_size . ' auto !important;
-                        background-size: ' . $logo_image_default_size . ' auto !important;
-                        width: ' . $logo_image_width . ';
-                        height:' . $logo_image_height . ';
-                        max-width:' . $logo_image_default_size . ';
-                        max-height:' . $logo_image_default_size . ';
+                        -webkit-background-size: ' . $logo_background_size . ' !important;
+                        background-size: ' . $logo_background_size . ' !important;
+                        background-position:center bottom !important;   
+                        width: 100%;
+                        height: 100%;
+                        white-space: nowrap;
+                        font-size:0px !important;
+                        line-height:0px !important;
+                    }
+                    body.login h1 a:before {
+                      padding-top: ' . $logo_padding_top . '; /*aspect ratio */
+                      content: ""; 
+                      display: block;    
                     }
                     </style>
                 ';
