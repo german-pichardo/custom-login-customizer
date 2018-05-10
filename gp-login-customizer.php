@@ -220,7 +220,6 @@ if (!class_exists(' GpLoginCustomizer')) {
         // Change default WP logo image (Site icon or fallback image)
         public static function logo_image()
         {
-
             $logo_image = get_theme_mod('setting_logo_image');
 
             if ($logo_image && !empty($logo_image)) {
@@ -238,7 +237,7 @@ if (!class_exists(' GpLoginCustomizer')) {
                         background: url("' . $logo_image . '") center center no-repeat !important;
                         -webkit-background-size: ' . $logo_background_size . ' !important;
                         background-size: ' . $logo_background_size . ' !important;
-                        background-position:center bottom !important;   
+                        background-position:center 80% !important;   
                         width: 100%;
                         height: 100%;
                         white-space: nowrap;
