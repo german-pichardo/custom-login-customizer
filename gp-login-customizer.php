@@ -23,11 +23,16 @@ if (!class_exists(' GpLoginCustomizer')) {
             add_action('admin_menu', [$this, 'add_menu_item']);
             // ADMIN : Register customize options
             add_action('customize_register', [$this, 'register_settings']);
-            add_action('login_head', [$this, 'logo_image']);
             add_action('login_headerurl', [$this, 'logo_url']);
             add_action('login_headertitle', [$this, 'logo_title']);
             add_action('login_errors', [$this, 'error_message']);
-            add_action('login_head', [$this, 'custom_login_css']);
+            add_action('login_head', [$this, 'login_head']);
+        }
+
+        public function login_head()
+        {
+            $this->logo_image();
+            $this->custom_login_css();
         }
 
         /*
@@ -215,6 +220,7 @@ if (!class_exists(' GpLoginCustomizer')) {
         // Change default WP logo image (Site icon or fallback image)
         public static function logo_image()
         {
+
             $logo_image = get_theme_mod('setting_logo_image');
 
             if ($logo_image && !empty($logo_image)) {
@@ -224,7 +230,7 @@ if (!class_exists(' GpLoginCustomizer')) {
 
                 $is_ratio_69 = $logo_image_width > $logo_image_height;
 
-                $logo_background_size = $is_ratio_69 ? '56.25% auto' : ' auto 75%';
+                $logo_background_size = $is_ratio_69 ? '60% auto' : ' auto 80%';
                 $logo_padding_top = $is_ratio_69 ? '56.25%' : '75%';
 
                 echo '<style type="text/css">
