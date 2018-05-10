@@ -229,8 +229,9 @@ if (!class_exists(' GpLoginCustomizer')) {
 
                 $is_ratio_69 = $logo_image_width > $logo_image_height;
 
-                $logo_background_size = $is_ratio_69 ? '60% auto' : (is_object($logo_image_size) ? ' auto 80%' : 'contain');
+                $logo_background_size = $is_ratio_69 ? '60% auto' : (is_array($logo_image_size) ? ' auto 80%' : 'contain');
                 $logo_padding_top = $is_ratio_69 ? '56.25%' : '75%';
+                $logo_container_width = is_array($logo_image_size) ? '100%' : '60%';
 
                 echo '<style type="text/css">
                     body.login h1 a {
@@ -238,7 +239,7 @@ if (!class_exists(' GpLoginCustomizer')) {
                         -webkit-background-size: ' . $logo_background_size . ' !important;
                         background-size: ' . $logo_background_size . ' !important;
                         background-position:center 80% !important;   
-                        width: 100%;
+                        width: '.$logo_container_width.';
                         height: 100%;
                         white-space: nowrap;
                         font-size:0px !important;
