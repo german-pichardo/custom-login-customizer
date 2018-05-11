@@ -337,14 +337,22 @@ if (!class_exists(' GpLoginCustomizer')) {
                     box-shadow:         none;
                 }
 
-                /*Start Additional CSS*/
-                <?php if(!empty(get_theme_mod( 'setting_additional_css'))) {
-                    print get_theme_mod( 'setting_additional_css','' );
-                } ?>
-
-                /*End Additional CSS*/
             </style>
             <?php
+        }
+
+        // Add custom css styles : external css or inline css to overwrite default form styles
+        public static function login_additional_css()
+        {
+            if (!empty(get_theme_mod('setting_additional_css'))) { ?>
+
+                <style id="login_additional_css" type="text/css">
+                    /*Start Additional CSS*/
+                    <?php print get_theme_mod( 'setting_additional_css','' ); ?>
+                    /*End Additional CSS*/
+                </style>
+
+            <?php }
         }
 
         public static function generate_css($selector, $style, $mod_name, $fallback_value, $prefix = '', $postfix = '', $echo = true)
