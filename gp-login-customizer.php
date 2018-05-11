@@ -31,8 +31,8 @@ if (!class_exists(' GpLoginCustomizer')) {
 
         public function login_head()
         {
-            $this->logo_image();
-            $this->custom_login_css();
+            $this->logo_style();
+            $this->login_style();
         }
 
         /*
@@ -214,11 +214,27 @@ if (!class_exists(' GpLoginCustomizer')) {
 
         }
 
-        //  =====================================================
-        //  = LOGIN PAGE:                                       =
-        //  =====================================================
-        // Change default WP logo image (Site icon or fallback image)
-        public static function logo_image()
+
+        // Change default url link wordpress.org from logo
+        public static function logo_url()
+        {
+            return home_url();
+        }
+
+        // Change default logo title attribute "Powered by Wordpress"
+        public static function logo_title()
+        {
+            return get_option('blogname');
+        }
+
+        // For security reasons it's better to insert a generic message instead of precising "Invalid username" or "Invalid password".
+        public static function error_message()
+        {
+            return get_theme_mod('setting_error_message', __('ERROR: Incorrect login details.', self::$text_domain));
+        }
+
+        // Change default WP logo image
+        public static function logo_style()
         {
             $logo_image = get_theme_mod('setting_logo_image');
 
@@ -256,28 +272,10 @@ if (!class_exists(' GpLoginCustomizer')) {
 
         }
 
-        // Change default url link wordpress.org from logo
-        public static function logo_url()
-        {
-            return home_url();
-        }
-
-        // Change default logo title attribute "Powered by Wordpress"
-        public static function logo_title()
-        {
-            return get_option('blogname');
-        }
-
-        // For security reasons it's better to insert a generic message instead of precising "Invalid username" or "Invalid password".
-        public static function error_message()
-        {
-            return get_theme_mod('setting_error_message', __('ERROR: Incorrect login details.', self::$text_domain));
-        }
-
         // Add custom css styles : external css or inline css to overwrite default form styles
-        public static function custom_login_css()
+        public static function login_style()
         { ?>
-            <style id="custom_login_css" type="text/css">
+            <style id="login_style" type="text/css">
 
                 <?php self::generate_css('body.login', 'background-color', 'setting_login_body_background', '#e8e8e7'); ?>
                 <?php self::generate_css('body.login', 'color', 'setting_form_label_color', '#514f4c'); ?>
@@ -343,6 +341,7 @@ if (!class_exists(' GpLoginCustomizer')) {
                 <?php if(!empty(get_theme_mod( 'setting_additional_css'))) {
                     print get_theme_mod( 'setting_additional_css','' );
                 } ?>
+
                 /*End Additional CSS*/
             </style>
             <?php
