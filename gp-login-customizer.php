@@ -31,8 +31,10 @@ if (!class_exists(' GpLoginCustomizer')) {
 
         public function login_head()
         {
-            $this->logo_style();
-            $this->login_style();
+            $this->logo_mod_style();
+            $this->login_mod_style();
+            $this->login_overwrite_style();
+            $this->login_additional_css();
         }
 
         /*
@@ -234,7 +236,7 @@ if (!class_exists(' GpLoginCustomizer')) {
         }
 
         // Change default WP logo image
-        public static function logo_style()
+        public static function logo_mod_style()
         {
             $logo_image = get_theme_mod('setting_logo_image');
 
@@ -268,9 +270,9 @@ if (!class_exists(' GpLoginCustomizer')) {
         }
 
         // Add custom css styles : external css or inline css to overwrite default form styles
-        public static function login_style()
+        public static function login_mod_style()
         { ?>
-            <style id="login_style" type="text/css">
+            <style id="login_mod_style" type="text/css">
 
                 <?php self::generate_css('body.login', 'background-color', 'setting_login_body_background', '#e8e8e7'); ?>
                 <?php self::generate_css('body.login', 'color', 'setting_form_label_color', '#514f4c'); ?>
@@ -288,6 +290,13 @@ if (!class_exists(' GpLoginCustomizer')) {
                 <?php self::generate_css('body.login .message, body.login #login_error, body.login input[type=checkbox]:checked, input[type="checkbox"]:focus', 'border-color', 'setting_form_secondary_color', '#ffcc4d'); ?>
                 <?php self::generate_css('body.login input[type=checkbox]:checked:before', 'color', 'setting_form_secondary_color', '#ffcc4d'); ?>
 
+            </style>
+        <?php }
+
+        // Add custom css styles : external css or inline css to overwrite default form styles
+        public static function login_overwrite_style()
+        { ?>
+            <style id="login_overwrite_style" type="text/css">
                 <!--/*Overwrite style*/-->
                 body.login form {
                     padding: 40px 30px;
