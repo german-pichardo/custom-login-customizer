@@ -111,7 +111,7 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]);
 
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_label_color', [
-                'label' => __('Body Default Font Colo', self::$text_domain),
+                'label' => __('Body Default Font Color', self::$text_domain),
                 'section' => $this->section_handle,
                 'settings' => 'setting_form_label_color',
             ]));
@@ -145,22 +145,37 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]));
 
             //  =====================================================
+            //  = Select : setting_button_border_radius    =
+            //  =====================================================
+            $wp_customize->add_setting('setting_button_border_radius', ['default' => '']);
+            $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_button_border_radius', [
+                    'label' => __('Button border radius', self::$text_domain),
+                    'section' => $this->section_handle,
+                    'settings' => 'setting_button_border_radius',
+                    'type' => 'select',
+                    'choices' => [
+                        '0px' => 'none',
+                        '5px' => 'Small',
+                        '10px' => 'Medium',
+                        '20px' => 'Large',
+                    ]
+                ]
+            ));
+
+            //  =====================================================
             //  = Select : setting_form_border_radius    =
             //  =====================================================
-            $wp_customize->add_setting('setting_form_border_radius', ['default' => '1px']);
+            $wp_customize->add_setting('setting_form_border_radius', ['default' => '']);
             $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_form_border_radius', [
                     'label' => __('Form border radius', self::$text_domain),
                     'section' => $this->section_handle,
                     'settings' => 'setting_form_border_radius',
                     'type' => 'select',
                     'choices' => [
-                        '0px' => '0px',
-                        '1px' => '1px',
-                        '2px' => '2px',
-                        '4px' => '4px',
-                        '6px' => '6px',
-                        '8px' => '8px',
-                        '10px' => '10px',
+                        '0px' => 'none',
+                        '5px' => 'Small',
+                        '10px' => 'Medium',
+                        '20px' => 'Large',
                     ]
                 ]
             ));

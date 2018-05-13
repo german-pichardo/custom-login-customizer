@@ -185,6 +185,7 @@ if (!class_exists(' GpLoginCustomizerFront')) {
 
                 <?php self::generate_css('.wp-core-ui .button-primary', 'background-color', 'setting_form_primary_color', '#293550','',' !important'); ?>
                 <?php self::generate_css('.wp-core-ui .button-primary', 'border-color', 'setting_form_primary_color', '#293550','',' !important'); ?>
+                <?php self::generate_css('.wp-core-ui .button-primary', 'border-radius', 'setting_button_border_radius', '','',' !important'); ?>
                 <?php self::generate_css('.wp-core-ui .button-primary', 'color', 'setting_form_button_text_color', '#ffffff'); ?>
 
                 <?php self::generate_css('body.login .message, body.login #login_error, body.login input[type=checkbox]:checked, input[type="checkbox"]:focus', 'border-color', 'setting_form_secondary_color', '#ffcc4d'); ?>
