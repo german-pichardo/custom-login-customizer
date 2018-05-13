@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
     die;
 }
 if (!class_exists(' GpLoginCustomizer')) {
-    class  GpLoginCustomizer
+    class GpLoginCustomizer
     {
         private $section_handle = 'custom_login_section';
 
@@ -247,29 +247,24 @@ if (!class_exists(' GpLoginCustomizer')) {
 
                 $logo_background_size = $is_ratio_69 ? '60% auto' : (is_array($logo_image_size) ? ' auto 80%' : 'contain');
                 $logo_padding_top = $is_ratio_69 ? '56.25%' : '75%';
-                $logo_container_width = is_array($logo_image_size) ? '100%' : '60%';
+                $logo_container_width = is_array($logo_image_size) ? '100%' : '60%'; ?>
 
-                echo '<style type="text/css">
-                    body.login h1 a {
-                        background: url("' . $logo_image . '") center center no-repeat !important;
-                        -webkit-background-size: ' . $logo_background_size . ' !important;
-                        background-size: ' . $logo_background_size . ' !important;
-                        background-position:center 80% !important;   
-                        width: '.$logo_container_width.';
-                        height: 100%;
-                        white-space: nowrap;
-                        font-size:0px !important;
-                        line-height:0px !important;
-                    }
-                    body.login h1 a:before {
-                      padding-top: ' . $logo_padding_top . '; /*aspect ratio */
-                      content: ""; 
-                      display: block;    
-                    }
-                    </style>
-                ';
-            }
+                <style type="text/css">
+                    <?php self::generate_css('body.login h1 a', 'background', '', 'url("' . $logo_image . '") center center no-repeat'); ?>
+                    <?php self::generate_css('body.login h1 a', 'background-size', '', $logo_background_size.'%%'); ?>
+                    <?php self::generate_css('body.login h1 a', 'background-position', '', 'center 80%%%'); ?>
+                    <?php self::generate_css('body.login h1 a', 'width', '', $logo_container_width.'%%'); ?>
+                    <?php self::generate_css('body.login h1 a', 'height', '', '100%%%'); ?>
+                    <?php self::generate_css('body.login h1 a', 'white-space', '', 'nowrap'); ?>
+                    <?php self::generate_css('body.login h1 a', 'font-size', '', '0px'); ?>
+                    <?php self::generate_css('body.login h1 a', 'line-height', '', '0px'); ?>
+                    /**/
+                    <?php self::generate_css('body.login h1 a:before', 'padding-top', '', $logo_padding_top.'%%'); ?>
+                    <?php self::generate_css('body.login h1 a:before', 'content', '', '""'); ?>
+                    <?php self::generate_css('body.login h1 a:before', 'display', '', 'block'); ?>
+                </style>
 
+            <?php }
         }
 
         // Add custom css styles : external css or inline css to overwrite default form styles
@@ -292,6 +287,8 @@ if (!class_exists(' GpLoginCustomizer')) {
 
                 <?php self::generate_css('body.login .message, body.login #login_error, body.login input[type=checkbox]:checked, input[type="checkbox"]:focus', 'border-color', 'setting_form_secondary_color', '#ffcc4d'); ?>
                 <?php self::generate_css('body.login input[type=checkbox]:checked:before', 'color', 'setting_form_secondary_color', '#ffcc4d'); ?>
+
+                <!--/*Overwrite style*/-->
                 body.login form {
                     padding: 40px 30px;
                 }
@@ -338,8 +335,7 @@ if (!class_exists(' GpLoginCustomizer')) {
                 }
 
             </style>
-            <?php
-        }
+        <?php }
 
         // Add custom css styles : external css or inline css to overwrite default form styles
         public static function login_additional_css()
