@@ -71,6 +71,20 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]));
 
             //  =====================================================
+            //  = Image Upload    setting_login_body_background_image          =
+            //  =====================================================
+            $wp_customize->add_setting('setting_login_body_background_image', [
+                'default' => has_site_icon() ? get_site_icon_url(150) : '',
+            ]);
+
+            $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'setting_login_body_background_image', [
+                'label' => __('Background cover image', self::$text_domain),
+                'description' => __('', self::$text_domain),
+                'section' => $this->section_handle,
+                'settings' => 'setting_login_body_background_image',
+            ]));
+
+            //  =====================================================
             //  = Color Picker : setting_form_label_color           =
             //  =====================================================
             $wp_customize->add_setting('setting_form_label_color', [
@@ -175,6 +189,20 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
 
             ]));
 
+            //  =====================================================
+            //  = Color Picker : setting_form_link_color     =
+            //  =====================================================
+            $wp_customize->add_setting('setting_form_link_color', [
+                'default' => '#72777c',
+                'sanitize_callback' => 'sanitize_hex_color',
+            ]);
+
+            $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_link_color', [
+                'label' => __('External Link color', self::$text_domain),
+                'description' => __('"Lost your password?" and "← Back to Site" links', self::$text_domain),
+                'section' => $this->section_handle,
+                'settings' => 'setting_form_link_color',
+            ]));
             //  =====================================================
             //  = Text Input setting_additional_css    =
             //  =====================================================

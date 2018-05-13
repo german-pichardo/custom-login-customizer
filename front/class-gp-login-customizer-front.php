@@ -111,6 +111,7 @@ if (!class_exists(' GpLoginCustomizerFront')) {
 
                 <?php self::generate_css('body.login .message, body.login #login_error, body.login input[type=checkbox]:checked, input[type="checkbox"]:focus', 'border-color', 'setting_form_secondary_color', '#ffcc4d'); ?>
                 <?php self::generate_css('body.login input[type=checkbox]:checked:before', 'color', 'setting_form_secondary_color', '#ffcc4d'); ?>
+                <?php self::generate_css('.login #nav a, .login #backtoblog a', 'color', 'setting_form_link_color', '#72777c'); ?>
 
             </style>
         <?php }
