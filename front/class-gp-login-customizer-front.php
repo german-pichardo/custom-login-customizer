@@ -22,6 +22,15 @@ if (!class_exists(' GpLoginCustomizerFront')) {
             add_action('login_headertitle', [$this, 'logo_title']);
             add_action('login_errors', [$this, 'error_message']);
             add_action('login_head', [$this, 'login_head']);
+
+            add_filter('admin_body_class', [$this, 'custom_class']);
+
+        }
+
+        public static function custom_class($classes)
+        {
+            // Or:
+            return "$classes my_class_1 my_class_2 my_class_3";
         }
 
         // Change default url link wordpress.org from logo
@@ -48,6 +57,73 @@ if (!class_exists(' GpLoginCustomizerFront')) {
             $this->login_mod_style();
             $this->login_overwrite_style();
             $this->login_mod_additional_style();
+            $this->login_type();
+        }
+
+        public function login_type()
+        {
+            $form_type = get_theme_mod('setting_login_type', '');
+
+            if ($form_type && !empty($form_type)) { ?>
+                <script type="text/javascript">
+                    window.onload = function () {
+                        document.body.classList.add('<?php echo $form_type; ?>')
+                    };
+                </script>
+
+                <style type="text/css">
+
+                    body.login {
+                        /*background-position: 320px center;*/
+                        width:      100%;
+                        height:     100%;
+                        min-height: 100%;
+                    }
+
+                    body.login #login {
+                        width:            360px;
+                        background-color: #fff;
+                    }
+
+                    body.login #login form {
+                        -webkit-box-shadow: none;
+                        -moz-box-shadow:    none;
+                        box-shadow:         none;
+                    }
+
+                    body.login,
+                    body.login #login::after {
+                        content: "";
+                        clear:   both;
+                        display: table;
+                    }
+
+                    body.login h1 a {
+                        margin-bottom: 0;
+                    }
+
+                    @media screen and (min-width: 920px) {
+                        body.login #login {
+                            min-height: 100%;
+                        }
+
+                        .login.form-align-left #login {
+                            margin-left: 0;
+                        }
+
+                        .login.form-align-right #login {
+                            margin-right: 0;
+                        }
+                    }
+
+                    @media screen and (max-width: 919px) {
+                    <?php self::generate_css('body.login #login', 'border-radius', 'setting_form_border_radius', '0px'); ?>
+                        body.login #login {
+                            margin: 30px;
+                        }
+                    }
+                </style>
+            <?php }
         }
 
         // Change default WP logo image
@@ -174,11 +250,13 @@ if (!class_exists(' GpLoginCustomizerFront')) {
 
                 .wp-core-ui .button.button-large,
                 .wp-core-ui .button-group.button-large .button {
-                    float: none;
-                    width: 100%;
-                    display: block;
+                    float:      none;
+                    width:      100%;
+                    display:    block;
                     margin-top: 20px;
+                    height:     40px;
                 }
+
                 input[type="text"]:focus,
                 input[type="email"]:focus,
                 input[type="search"]:focus,
@@ -187,9 +265,10 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                     -moz-box-shadow:    none;
                     box-shadow:         none;
                 }
+
                 #login form p.submit {
                     display: block;
-                    clear: both;
+                    clear:   both;
                 }
 
                 #login form p ~ p {

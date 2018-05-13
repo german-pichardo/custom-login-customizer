@@ -15,8 +15,6 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             add_action('admin_menu', [$this, 'add_menu_item']);
             // ADMIN : Register customize options
             add_action('customize_register', [$this, 'register_settings']);
-
-
         }
 
         /*
@@ -43,6 +41,24 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
                 'title' => __('Login Customizer', self::$text_domain),
                 'priority' => 35,
             ]);
+
+            //  =====================================================
+            //  = Select : setting_login_type    =
+            //  =====================================================
+            $wp_customize->add_setting('setting_login_type', ['default' => '']);
+            $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_login_type', [
+                    'label' => __('Form style', self::$text_domain),
+                    'section' => $this->section_handle,
+                    'settings' => 'setting_login_type',
+                    'type' => 'select',
+                    'choices' => [
+                        '' => 'Default wordpress style',
+                        'form-align-center' => '    Form align center',
+                        'form-align-left' => 'Form align left',
+                        'form-align-right' => 'Form align right',
+                    ]
+                ]
+            ));
 
             //  =====================================================
             //  = Image Upload    setting_logo_image          =
