@@ -15,6 +15,8 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             add_action('admin_menu', [$this, 'add_menu_item']);
             // ADMIN : Register customize options
             add_action('customize_register', [$this, 'register_settings']);
+
+
         }
 
         /*
@@ -97,22 +99,6 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
                 'section' => $this->section_handle,
                 'settings' => 'setting_form_label_color',
             ]));
-
-            //  =====================================================
-            //  = Text Input setting_error_message    =
-            //  =====================================================
-            $wp_customize->add_setting('setting_error_message', [
-                'default' => 'ERROR: Incorrect login details.',
-            ]);
-
-            $wp_customize->add_control('setting_error_message', [
-                'label' => __('Error message', self::$text_domain),
-                'description' => __('For security reasons it\'s better to insert a generic message instead of precising "Invalid username" or "Invalid password".', self::$text_domain),
-                'section' => $this->section_handle,
-                'settings' => 'setting_error_message',
-                'type' => 'text',
-
-            ]);
 
             //  =====================================================
             //  = Color Picker : setting_form_button_text_color     =
@@ -203,6 +189,24 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
                 'section' => $this->section_handle,
                 'settings' => 'setting_form_link_color',
             ]));
+
+
+            //  =====================================================
+            //  = Text Input setting_error_message    =
+            //  =====================================================
+            $wp_customize->add_setting('setting_error_message', [
+                'default' => 'ERROR: Incorrect login details.',
+            ]);
+
+            $wp_customize->add_control('setting_error_message', [
+                'label' => __('Error message', self::$text_domain),
+                'description' => __('For security reasons it\'s better to insert a generic message instead of precising "Invalid username" or "Invalid password".', self::$text_domain),
+                'section' => $this->section_handle,
+                'settings' => 'setting_error_message',
+                'type' => 'text',
+
+            ]);
+
             //  =====================================================
             //  = Text Input setting_additional_css    =
             //  =====================================================
