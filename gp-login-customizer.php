@@ -34,7 +34,7 @@ if (!class_exists(' GpLoginCustomizer')) {
             $this->logo_mod_style();
             $this->login_mod_style();
             $this->login_overwrite_style();
-            $this->login_additional_css();
+            $this->login_mod_additional_style();
         }
 
         /*
@@ -216,7 +216,6 @@ if (!class_exists(' GpLoginCustomizer')) {
 
         }
 
-
         // Change default url link wordpress.org from logo
         public static function logo_url()
         {
@@ -269,7 +268,6 @@ if (!class_exists(' GpLoginCustomizer')) {
             <?php }
         }
 
-        // Add custom css styles : external css or inline css to overwrite default form styles
         public static function login_mod_style()
         { ?>
             <style id="login_mod_style" type="text/css">
@@ -294,10 +292,24 @@ if (!class_exists(' GpLoginCustomizer')) {
         <?php }
 
         // Add custom css styles : external css or inline css to overwrite default form styles
+        public static function login_mod_additional_style()
+        {
+            if (!empty(get_theme_mod('setting_additional_css'))) { ?>
+
+                <style id="login_additional_css" type="text/css">
+                    /*Start Additional CSS*/
+                    <?php print get_theme_mod( 'setting_additional_css','' ); ?>
+                    /*End Additional CSS*/
+                </style>
+
+            <?php }
+        }
+
         public static function login_overwrite_style()
         { ?>
             <style id="login_overwrite_style" type="text/css">
-                <!--/*Overwrite style*/-->
+                <!-- /*Overwrite style*/
+                -->
                 body.login form {
                     padding: 40px 30px;
                 }
@@ -345,20 +357,6 @@ if (!class_exists(' GpLoginCustomizer')) {
 
             </style>
         <?php }
-
-        // Add custom css styles : external css or inline css to overwrite default form styles
-        public static function login_additional_css()
-        {
-            if (!empty(get_theme_mod('setting_additional_css'))) { ?>
-
-                <style id="login_additional_css" type="text/css">
-                    /*Start Additional CSS*/
-                    <?php print get_theme_mod( 'setting_additional_css','' ); ?>
-                    /*End Additional CSS*/
-                </style>
-
-            <?php }
-        }
 
         public static function generate_css($selector, $style, $mod_name, $fallback_value, $prefix = '', $postfix = '', $echo = true)
         {
