@@ -212,6 +212,23 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ));
 
             //  =====================================================
+            //  = Select : setting_form_input_border_radius    =
+            //  =====================================================
+            $wp_customize->add_setting('setting_form_input_border_radius', ['default' => '1px']);
+            $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_form_input_border_radius', [
+                    'label' => __('Input border radius', self::$text_domain),
+                    'section' => $this->section_handle,
+                    'settings' => 'setting_form_input_border_radius',
+                    'type' => 'select',
+                    'choices' => [
+                        '0px' => 'none',
+                        '5px' => 'Small',
+                        '10px' => 'Medium',
+                        '20px' => 'Large',
+                    ]
+                ]
+            ));
+            //  =====================================================
             //  = Color Picker : setting_form_secondary_color       =
             //  =====================================================
             $wp_customize->add_setting('setting_form_secondary_color', [

@@ -182,6 +182,7 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                 <?php self::generate_css('body.login form .input', 'border-color', 'setting_form_input_border_color', '#e3e5e8'); ?>
                 <?php self::generate_css('body.login form .input', 'color', 'setting_form_label_color', '#514f4c'); ?>
                 <?php self::generate_css('body.login form .input', 'border-width', 'setting_form_input_border_width', '2px'); ?>
+                <?php self::generate_css('body.login form .input,body.login input[type="text"]', 'border-radius', 'setting_form_input_border_radius', '0px'); ?>
 
                 <?php self::generate_css('.wp-core-ui .button-primary', 'background-color', 'setting_form_primary_color', '#293550','',' !important'); ?>
                 <?php self::generate_css('.wp-core-ui .button-primary', 'border-color', 'setting_form_primary_color', '#293550','',' !important'); ?>
@@ -220,10 +221,6 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                 body.login label {
                     font-weight: 700;
                     font-size:   0.9em;
-                }
-
-                body.login input[type="text"] {
-                    -webkit-border-radius: 0;
                 }
 
                 body.login form .input,
