@@ -62,21 +62,21 @@ if (!class_exists(' GpLoginCustomizerFront')) {
 
                 $is_ratio_69 = $logo_image_width > $logo_image_height;
 
-                $logo_background_size = $is_ratio_69 ? '60% auto' : (is_array($logo_image_size) ? ' auto 80%' : 'contain');
-                $logo_padding_top = $is_ratio_69 ? '56.25%' : '75%';
-                $logo_container_width = is_array($logo_image_size) ? '100%' : '60%'; ?>
+                $logo_background_size = $is_ratio_69 ? '60%% auto' : (is_array($logo_image_size) ? ' auto 80%%' : 'contain');
+                $logo_padding_top = $is_ratio_69 ? '56.25%%' : '75%%';
+                $logo_container_width = is_array($logo_image_size) ? '100%%' : '60%%'; ?>
 
                 <style type="text/css">
                     <?php self::generate_css('body.login h1 a', 'background', '', 'url("' . $logo_image . '") center center no-repeat'); ?>
-                    <?php self::generate_css('body.login h1 a', 'background-size', '', $logo_background_size.'%%'); ?>
-                    <?php self::generate_css('body.login h1 a', 'background-position', '', 'center 80%%%'); ?>
-                    <?php self::generate_css('body.login h1 a', 'width', '', $logo_container_width.'%%'); ?>
-                    <?php self::generate_css('body.login h1 a', 'height', '', '100%%%'); ?>
+                    <?php self::generate_css('body.login h1 a', 'background-size', '', $logo_background_size); ?>
+                    <?php self::generate_css('body.login h1 a', 'background-position', '', 'center 80%%'); ?>
+                    <?php self::generate_css('body.login h1 a', 'width', '', $logo_container_width); ?>
+                    <?php self::generate_css('body.login h1 a', 'height', '', '100%%'); ?>
                     <?php self::generate_css('body.login h1 a', 'white-space', '', 'nowrap'); ?>
                     <?php self::generate_css('body.login h1 a', 'font-size', '', '0px'); ?>
                     <?php self::generate_css('body.login h1 a', 'line-height', '', '0px'); ?>
                     /**/
-                    <?php self::generate_css('body.login h1 a:before', 'padding-top', '', $logo_padding_top.'%%'); ?>
+                    <?php self::generate_css('body.login h1 a:before', 'padding-top', '', $logo_padding_top); ?>
                     <?php self::generate_css('body.login h1 a:before', 'content', '', '""'); ?>
                     <?php self::generate_css('body.login h1 a:before', 'display', '', 'block'); ?>
                 </style>
@@ -87,13 +87,15 @@ if (!class_exists(' GpLoginCustomizerFront')) {
         public static function login_mod_style()
         { ?>
             <style id="login_mod_style" type="text/css">
+
                 <?php
                     $login_background_image = get_theme_mod('setting_login_body_background_image');
-                    if (!empty($login_background_image)) {
+                    if ($login_background_image && !empty($login_background_image)) {
                         self::generate_css('body.login', 'background', '', 'url("' . $login_background_image . '") center center no-repeat');
                         self::generate_css('body.login', 'background-size', '', 'cover');
                     }
                 ?>
+
                 <?php self::generate_css('body.login', 'background-color', 'setting_login_body_background', '#e8e8e7'); ?>
                 <?php self::generate_css('body.login', 'color', 'setting_form_label_color', '#514f4c'); ?>
 
