@@ -172,6 +172,13 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                     box-shadow:         none;
                 }
 
+                .wp-core-ui .button.button-large,
+                .wp-core-ui .button-group.button-large .button {
+                    float: none;
+                    width: 100%;
+                    display: block;
+                    margin-top: 20px;
+                }
                 input[type="text"]:focus,
                 input[type="email"]:focus,
                 input[type="search"]:focus,
@@ -179,6 +186,15 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                     -webkit-box-shadow: none;
                     -moz-box-shadow:    none;
                     box-shadow:         none;
+                }
+                #login form p.submit {
+                    display: block;
+                    clear: both;
+                }
+
+                #login form p ~ p {
+                    clear: both;
+                    float: none;
                 }
 
             </style>
