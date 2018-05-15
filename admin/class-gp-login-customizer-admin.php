@@ -69,7 +69,7 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
 
             $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'setting_logo_image', [
                 'label' => __('Login logo', self::$text_domain),
-                'description' => __('Ideal size: squared transparent png 110x110px, maximum size 150px  )', self::$text_domain),
+                'description' => __('Transparent png minimum 150px', self::$text_domain),
                 'section' => $this->section_handle,
                 'settings' => 'setting_logo_image',
             ]));
