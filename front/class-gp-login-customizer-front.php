@@ -138,7 +138,7 @@ if (!class_exists(' GpLoginCustomizerFront')) {
 
                 $is_ratio_69 = $logo_image_width > $logo_image_height;
 
-                $logo_background_size = $is_ratio_69 ? '60%% auto' : (is_array($logo_image_size) ? ' auto 80%%' : 'contain');
+                $logo_background_size = $is_ratio_69 ? '50%% auto' : (is_array($logo_image_size) ? ' auto 80%%' : 'contain');
                 $logo_padding_top = $is_ratio_69 ? '56.25%%' : '75%%';
                 $logo_container_width = is_array($logo_image_size) ? '100%%' : '60%%'; ?>
 
