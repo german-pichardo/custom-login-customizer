@@ -176,8 +176,8 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                 <?php self::generate_css('body.login form .input', 'border-width', 'setting_form_input_border_width', '2px'); ?>
                 <?php self::generate_css('body.login form .input,body.login input[type="text"]', 'border-radius', 'setting_form_input_border_radius', '0px'); ?>
 
-                <?php self::generate_css('.wp-core-ui .button-primary', 'background-color', 'setting_form_primary_color', '#293550','',' !important'); ?>
-                <?php self::generate_css('.wp-core-ui .button-primary', 'border-color', 'setting_form_primary_color', '#293550','',' !important'); ?>
+                <?php self::generate_css('.wp-core-ui .button-primary', 'background-color', 'setting_form_button_bg_color', '#9bbca9','',' !important'); ?>
+                <?php self::generate_css('.wp-core-ui .button-primary', 'border-color', 'setting_form_button_bg_color', '#9bbca9','',' !important'); ?>
                 <?php self::generate_css('.wp-core-ui .button-primary', 'border-radius', 'setting_button_border_radius', '','',' !important'); ?>
                 <?php self::generate_css('.wp-core-ui .button-primary', 'color', 'setting_form_button_text_color', '#ffffff'); ?>
 
