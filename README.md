@@ -2,6 +2,8 @@
 
 Change default login URL, Title, Styles, Logo, etc. Go to : Appearance -> Themes -> Customize -> Login Customizer
    
+![Alt Text](https://raw.githubusercontent.com/german-pichardo/gp-login-customizer/master/screenshot.gif)
+
 ## Author
 
 **German Pichardo**
