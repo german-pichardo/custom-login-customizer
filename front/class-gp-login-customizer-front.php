@@ -81,6 +81,7 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                         -webkit-box-shadow: none;
                         -moz-box-shadow:    none;
                         box-shadow:         none;
+                        background:         none;
                     }
 
                     body.login,
@@ -94,7 +95,14 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                         margin-bottom: 0;
                     }
 
-                    @media screen and (min-width: 920px) {
+                    body.login .message,
+                    body.login #login_error {
+                        margin-left:  auto !important;
+                        margin-right: auto;
+                        max-width:    80%;
+                    }
+
+                    @media screen and (min-width: 768px) {
                         body.login #login {
                             min-height: 100%;
                         }
@@ -108,7 +116,7 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                         }
                     }
 
-                    @media screen and (max-width: 919px) {
+                    @media screen and (max-width: 767px) {
                     <?php self::generate_css('body.login #login', 'border-radius', 'setting_form_border_radius', '0px'); ?>
                         body.login #login {
                             margin: 30px;
