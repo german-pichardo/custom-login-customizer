@@ -117,18 +117,22 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]));
 
             //  =====================================================
-            //  = Color Picker : setting_form_button_text_color     =
+            //  = Select : setting_form_border_radius    =
             //  =====================================================
-            $wp_customize->add_setting('setting_form_button_text_color', [
-                'default' => '#ffffff',
-                'sanitize_callback' => 'sanitize_hex_color',
-            ]);
-
-            $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_button_text_color', [
-                'label' => __('Button text color', self::$text_domain),
-                'section' => $this->section_handle,
-                'settings' => 'setting_form_button_text_color',
-            ]));
+            $wp_customize->add_setting('setting_form_border_radius', ['default' => '']);
+            $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_form_border_radius', [
+                    'label' => __('Form border radius', self::$text_domain),
+                    'section' => $this->section_handle,
+                    'settings' => 'setting_form_border_radius',
+                    'type' => 'select',
+                    'choices' => [
+                        '0px' => 'none',
+                        '5px' => 'Small',
+                        '10px' => 'Medium',
+                        '20px' => 'Large',
+                    ]
+                ]
+            ));
 
             //  =====================================================
             //  = Color Picker : setting_form_button_bg_color         =
@@ -142,6 +146,20 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
                 'label' => __('Button background color', self::$text_domain),
                 'section' => $this->section_handle,
                 'settings' => 'setting_form_button_bg_color',
+            ]));
+
+            //  =====================================================
+            //  = Color Picker : setting_form_button_text_color     =
+            //  =====================================================
+            $wp_customize->add_setting('setting_form_button_text_color', [
+                'default' => '#ffffff',
+                'sanitize_callback' => 'sanitize_hex_color',
+            ]);
+
+            $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_button_text_color', [
+                'label' => __('Button text color', self::$text_domain),
+                'section' => $this->section_handle,
+                'settings' => 'setting_form_button_text_color',
             ]));
 
             //  =====================================================
@@ -163,24 +181,6 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ));
 
             //  =====================================================
-            //  = Select : setting_form_border_radius    =
-            //  =====================================================
-            $wp_customize->add_setting('setting_form_border_radius', ['default' => '']);
-            $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_form_border_radius', [
-                    'label' => __('Form border radius', self::$text_domain),
-                    'section' => $this->section_handle,
-                    'settings' => 'setting_form_border_radius',
-                    'type' => 'select',
-                    'choices' => [
-                        '0px' => 'none',
-                        '5px' => 'Small',
-                        '10px' => 'Medium',
-                        '20px' => 'Large',
-                    ]
-                ]
-            ));
-
-            //  =====================================================
             //  = Color Picker : setting_form_input_border_color    =
             //  =====================================================
             $wp_customize->add_setting('setting_form_input_border_color', [
@@ -189,7 +189,7 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]);
 
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_input_border_color', [
-                'label' => __('Input field color', self::$text_domain),
+                'label' => __('Input border color', self::$text_domain),
                 'section' => $this->section_handle,
                 'settings' => 'setting_form_input_border_color',
             ]));
@@ -199,7 +199,7 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             //  =====================================================
             $wp_customize->add_setting('setting_form_input_border_width', ['default' => '1px']);
             $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_form_input_border_width', [
-                    'label' => __('Input field border width', self::$text_domain),
+                    'label' => __('Input border width', self::$text_domain),
                     'section' => $this->section_handle,
                     'settings' => 'setting_form_input_border_width',
                     'type' => 'select',
@@ -253,7 +253,7 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]);
 
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_link_color', [
-                'label' => __('External Link color', self::$text_domain),
+                'label' => __('Link color', self::$text_domain),
                 'description' => __('"Lost your password?" and "← Back to Site" links', self::$text_domain),
                 'section' => $this->section_handle,
                 'settings' => 'setting_form_link_color',
