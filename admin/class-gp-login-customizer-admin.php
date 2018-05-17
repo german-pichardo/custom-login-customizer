@@ -43,6 +43,24 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]);
 
             //  =====================================================
+            //  = Select : setting_login_type    =
+            //  =====================================================
+            $wp_customize->add_setting('setting_login_type', ['default' => '']);
+            $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_login_type', [
+                    'label' => __('Form style', self::$text_domain),
+                    'section' => $this->section_handle,
+                    'settings' => 'setting_login_type',
+                    'type' => 'select',
+                    'choices' => [
+                        '' => 'Default wordpress style',
+                        'form-align-center' => '    Form align center',
+                        'form-align-left' => 'Form align left',
+                        'form-align-right' => 'Form align right',
+                    ]
+                ]
+            ));
+
+            //  =====================================================
             //  = Image Upload    setting_logo_image          =
             //  =====================================================
             $wp_customize->add_setting('setting_logo_image', [
@@ -51,7 +69,7 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
 
             $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'setting_logo_image', [
                 'label' => __('Login logo', self::$text_domain),
-                'description' => __('Ideal size: squared transparent png 110x110px, maximum size 150px  )', self::$text_domain),
+                'description' => __('Transparent png minimum 150px', self::$text_domain),
                 'section' => $this->section_handle,
                 'settings' => 'setting_logo_image',
             ]));
@@ -71,6 +89,20 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]));
 
             //  =====================================================
+            //  = Image Upload    setting_login_body_background_image          =
+            //  =====================================================
+            $wp_customize->add_setting('setting_login_body_background_image', [
+                'default' => has_site_icon() ? get_site_icon_url(150) : '',
+            ]);
+
+            $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'setting_login_body_background_image', [
+                'label' => __('Background cover image', self::$text_domain),
+                'description' => __('', self::$text_domain),
+                'section' => $this->section_handle,
+                'settings' => 'setting_login_body_background_image',
+            ]));
+
+            //  =====================================================
             //  = Color Picker : setting_form_label_color           =
             //  =====================================================
             $wp_customize->add_setting('setting_form_label_color', [
@@ -79,26 +111,10 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]);
 
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_label_color', [
-                'label' => __('Body Default Font Colo', self::$text_domain),
+                'label' => __('Body Default Font Color', self::$text_domain),
                 'section' => $this->section_handle,
                 'settings' => 'setting_form_label_color',
             ]));
-
-            //  =====================================================
-            //  = Text Input setting_error_message    =
-            //  =====================================================
-            $wp_customize->add_setting('setting_error_message', [
-                'default' => 'ERROR: Incorrect login details.',
-            ]);
-
-            $wp_customize->add_control('setting_error_message', [
-                'label' => __('Error message', self::$text_domain),
-                'description' => __('For security reasons it\'s better to insert a generic message instead of precising "Invalid username" or "Invalid password".', self::$text_domain),
-                'section' => $this->section_handle,
-                'settings' => 'setting_error_message',
-                'type' => 'text',
-
-            ]);
 
             //  =====================================================
             //  = Color Picker : setting_form_button_text_color     =
@@ -129,6 +145,42 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]));
 
             //  =====================================================
+            //  = Select : setting_button_border_radius    =
+            //  =====================================================
+            $wp_customize->add_setting('setting_button_border_radius', ['default' => '']);
+            $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_button_border_radius', [
+                    'label' => __('Button border radius', self::$text_domain),
+                    'section' => $this->section_handle,
+                    'settings' => 'setting_button_border_radius',
+                    'type' => 'select',
+                    'choices' => [
+                        '0px' => 'none',
+                        '5px' => 'Small',
+                        '10px' => 'Medium',
+                        '20px' => 'Large',
+                    ]
+                ]
+            ));
+
+            //  =====================================================
+            //  = Select : setting_form_border_radius    =
+            //  =====================================================
+            $wp_customize->add_setting('setting_form_border_radius', ['default' => '']);
+            $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_form_border_radius', [
+                    'label' => __('Form border radius', self::$text_domain),
+                    'section' => $this->section_handle,
+                    'settings' => 'setting_form_border_radius',
+                    'type' => 'select',
+                    'choices' => [
+                        '0px' => 'none',
+                        '5px' => 'Small',
+                        '10px' => 'Medium',
+                        '20px' => 'Large',
+                    ]
+                ]
+            ));
+
+            //  =====================================================
             //  = Color Picker : setting_form_input_border_color    =
             //  =====================================================
             $wp_customize->add_setting('setting_form_input_border_color', [
@@ -143,7 +195,7 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]));
 
             //  =====================================================
-            //  = Color Picker : setting_form_input_border_width    =
+            //  = Select : setting_form_input_border_width    =
             //  =====================================================
             $wp_customize->add_setting('setting_form_input_border_width', ['default' => '1px']);
             $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_form_input_border_width', [
@@ -160,6 +212,23 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ));
 
             //  =====================================================
+            //  = Select : setting_form_input_border_radius    =
+            //  =====================================================
+            $wp_customize->add_setting('setting_form_input_border_radius', ['default' => '1px']);
+            $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_form_input_border_radius', [
+                    'label' => __('Input border radius', self::$text_domain),
+                    'section' => $this->section_handle,
+                    'settings' => 'setting_form_input_border_radius',
+                    'type' => 'select',
+                    'choices' => [
+                        '0px' => 'none',
+                        '5px' => 'Small',
+                        '10px' => 'Medium',
+                        '20px' => 'Large',
+                    ]
+                ]
+            ));
+            //  =====================================================
             //  = Color Picker : setting_form_secondary_color       =
             //  =====================================================
             $wp_customize->add_setting('setting_form_secondary_color', [
@@ -174,6 +243,38 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
                 'settings' => 'setting_form_secondary_color',
 
             ]));
+
+            //  =====================================================
+            //  = Color Picker : setting_form_link_color     =
+            //  =====================================================
+            $wp_customize->add_setting('setting_form_link_color', [
+                'default' => '#72777c',
+                'sanitize_callback' => 'sanitize_hex_color',
+            ]);
+
+            $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_link_color', [
+                'label' => __('External Link color', self::$text_domain),
+                'description' => __('"Lost your password?" and "← Back to Site" links', self::$text_domain),
+                'section' => $this->section_handle,
+                'settings' => 'setting_form_link_color',
+            ]));
+
+
+            //  =====================================================
+            //  = Text Input setting_error_message    =
+            //  =====================================================
+            $wp_customize->add_setting('setting_error_message', [
+                'default' => 'ERROR: Incorrect login details.',
+            ]);
+
+            $wp_customize->add_control('setting_error_message', [
+                'label' => __('Error message', self::$text_domain),
+                'description' => __('For security reasons it\'s better to insert a generic message instead of precising "Invalid username" or "Invalid password".', self::$text_domain),
+                'section' => $this->section_handle,
+                'settings' => 'setting_error_message',
+                'type' => 'text',
+
+            ]);
 
             //  =====================================================
             //  = Text Input setting_additional_css    =
