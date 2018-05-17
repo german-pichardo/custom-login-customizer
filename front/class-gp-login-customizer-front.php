@@ -165,14 +165,14 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                 ?>
 
                 <?php self::generate_css('body.login', 'background-color', 'setting_login_body_background', '#e8e8e7'); ?>
-                <?php self::generate_css('body.login', 'color', 'setting_form_label_color', '#514f4c'); ?>
+                <?php self::generate_css('body.login', 'color', 'setting_form_text_color', '#514f4c'); ?>
 
                 <?php self::generate_css('body.login form', 'border-radius', 'setting_form_border_radius', '0px'); ?>
 
-                <?php self::generate_css('body.login label', 'color', 'setting_form_label_color', '#514f4c'); ?>
+                <?php self::generate_css('body.login label', 'color', 'setting_form_text_color', '#514f4c'); ?>
 
                 <?php self::generate_css('body.login form .input', 'border-color', 'setting_form_input_border_color', '#e3e5e8'); ?>
-                <?php self::generate_css('body.login form .input', 'color', 'setting_form_label_color', '#514f4c'); ?>
+                <?php self::generate_css('body.login form .input', 'color', 'setting_form_text_color', '#514f4c'); ?>
                 <?php self::generate_css('body.login form .input', 'border-width', 'setting_form_input_border_width', '2px'); ?>
                 <?php self::generate_css('body.login form .input,body.login input[type="text"]', 'border-radius', 'setting_form_input_border_radius', '0px'); ?>
 
