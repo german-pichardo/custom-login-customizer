@@ -77,6 +77,8 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                         background-color: #fff;
                     }
 
+                    <?php self::generate_css('body.login #login', 'background-color', 'setting_form_background_color', '#ffffff'); ?>
+
                     body.login #login form {
                         -webkit-box-shadow: none;
                         -moz-box-shadow:    none;
@@ -176,6 +178,7 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                 <?php self::generate_css('body.login', 'color', 'setting_form_text_color', '#514f4c'); ?>
 
                 <?php self::generate_css('body.login form', 'border-radius', 'setting_form_border_radius', '0px'); ?>
+                <?php self::generate_css('body.login form', 'background-color', 'setting_form_background_color', '#ffffff'); ?>
 
                 <?php self::generate_css('body.login label', 'color', 'setting_form_text_color', '#514f4c'); ?>
 

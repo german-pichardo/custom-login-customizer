@@ -103,6 +103,20 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]));
 
             //  =====================================================
+            //  = Color Picker : setting_form_background_color           =
+            //  =====================================================
+            $wp_customize->add_setting('setting_form_background_color', [
+                'default' => '#ffffff',
+                'sanitize_callback' => 'sanitize_hex_color',
+            ]);
+
+            $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_background_color', [
+                'label' => __('Form background Color', self::$text_domain),
+                'section' => $this->section_handle,
+                'settings' => 'setting_form_background_color',
+            ]));
+
+            //  =====================================================
             //  = Color Picker : setting_form_text_color           =
             //  =====================================================
             $wp_customize->add_setting('setting_form_text_color', [
