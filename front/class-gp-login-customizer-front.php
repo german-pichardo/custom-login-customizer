@@ -77,10 +77,13 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                         background-color: #fff;
                     }
 
+                    <?php self::generate_css('body.login #login', 'background-color', 'setting_form_background_color', '#ffffff'); ?>
+
                     body.login #login form {
                         -webkit-box-shadow: none;
                         -moz-box-shadow:    none;
                         box-shadow:         none;
+                        background:         none;
                     }
 
                     body.login,
@@ -94,7 +97,14 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                         margin-bottom: 0;
                     }
 
-                    @media screen and (min-width: 920px) {
+                    body.login .message,
+                    body.login #login_error {
+                        margin-left:  auto !important;
+                        margin-right: auto;
+                        max-width:    80%;
+                    }
+
+                    @media screen and (min-width: 768px) {
                         body.login #login {
                             min-height: 100%;
                         }
@@ -108,7 +118,7 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                         }
                     }
 
-                    @media screen and (max-width: 919px) {
+                    @media screen and (max-width: 767px) {
                     <?php self::generate_css('body.login #login', 'border-radius', 'setting_form_border_radius', '0px'); ?>
                         body.login #login {
                             margin: 30px;
@@ -165,19 +175,20 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                 ?>
 
                 <?php self::generate_css('body.login', 'background-color', 'setting_login_body_background', '#e8e8e7'); ?>
-                <?php self::generate_css('body.login', 'color', 'setting_form_label_color', '#514f4c'); ?>
+                <?php self::generate_css('body.login', 'color', 'setting_form_text_color', '#514f4c'); ?>
 
                 <?php self::generate_css('body.login form', 'border-radius', 'setting_form_border_radius', '0px'); ?>
+                <?php self::generate_css('body.login form', 'background-color', 'setting_form_background_color', '#ffffff'); ?>
 
-                <?php self::generate_css('body.login label', 'color', 'setting_form_label_color', '#514f4c'); ?>
+                <?php self::generate_css('body.login label', 'color', 'setting_form_text_color', '#514f4c'); ?>
 
                 <?php self::generate_css('body.login form .input', 'border-color', 'setting_form_input_border_color', '#e3e5e8'); ?>
-                <?php self::generate_css('body.login form .input', 'color', 'setting_form_label_color', '#514f4c'); ?>
+                <?php self::generate_css('body.login form .input', 'color', 'setting_form_text_color', '#514f4c'); ?>
                 <?php self::generate_css('body.login form .input', 'border-width', 'setting_form_input_border_width', '2px'); ?>
                 <?php self::generate_css('body.login form .input,body.login input[type="text"]', 'border-radius', 'setting_form_input_border_radius', '0px'); ?>
 
-                <?php self::generate_css('.wp-core-ui .button-primary', 'background-color', 'setting_form_primary_color', '#293550','',' !important'); ?>
-                <?php self::generate_css('.wp-core-ui .button-primary', 'border-color', 'setting_form_primary_color', '#293550','',' !important'); ?>
+                <?php self::generate_css('.wp-core-ui .button-primary', 'background-color', 'setting_form_button_bg_color', '#9bbca9','',' !important'); ?>
+                <?php self::generate_css('.wp-core-ui .button-primary', 'border-color', 'setting_form_button_bg_color', '#9bbca9','',' !important'); ?>
                 <?php self::generate_css('.wp-core-ui .button-primary', 'border-radius', 'setting_button_border_radius', '','',' !important'); ?>
                 <?php self::generate_css('.wp-core-ui .button-primary', 'color', 'setting_form_button_text_color', '#ffffff'); ?>
 

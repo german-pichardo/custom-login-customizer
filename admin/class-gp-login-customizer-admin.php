@@ -96,24 +96,70 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]);
 
             $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'setting_login_body_background_image', [
-                'label' => __('Background cover image', self::$text_domain),
+                'label' => __('Body background image', self::$text_domain),
                 'description' => __('', self::$text_domain),
                 'section' => $this->section_handle,
                 'settings' => 'setting_login_body_background_image',
             ]));
 
             //  =====================================================
-            //  = Color Picker : setting_form_label_color           =
+            //  = Color Picker : setting_form_background_color           =
             //  =====================================================
-            $wp_customize->add_setting('setting_form_label_color', [
+            $wp_customize->add_setting('setting_form_background_color', [
+                'default' => '#ffffff',
+                'sanitize_callback' => 'sanitize_hex_color',
+            ]);
+
+            $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_background_color', [
+                'label' => __('Form background Color', self::$text_domain),
+                'section' => $this->section_handle,
+                'settings' => 'setting_form_background_color',
+            ]));
+
+            //  =====================================================
+            //  = Color Picker : setting_form_text_color           =
+            //  =====================================================
+            $wp_customize->add_setting('setting_form_text_color', [
                 'default' => '#72777c',
                 'sanitize_callback' => 'sanitize_hex_color',
             ]);
 
-            $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_label_color', [
-                'label' => __('Body Default Font Color', self::$text_domain),
+            $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_text_color', [
+                'label' => __('Form text Color', self::$text_domain),
                 'section' => $this->section_handle,
-                'settings' => 'setting_form_label_color',
+                'settings' => 'setting_form_text_color',
+            ]));
+
+            //  =====================================================
+            //  = Select : setting_form_border_radius    =
+            //  =====================================================
+            $wp_customize->add_setting('setting_form_border_radius', ['default' => '']);
+            $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_form_border_radius', [
+                    'label' => __('Form border radius', self::$text_domain),
+                    'section' => $this->section_handle,
+                    'settings' => 'setting_form_border_radius',
+                    'type' => 'select',
+                    'choices' => [
+                        '0px' => 'none',
+                        '5px' => 'Small',
+                        '10px' => 'Medium',
+                        '20px' => 'Large',
+                    ]
+                ]
+            ));
+
+            //  =====================================================
+            //  = Color Picker : setting_form_button_bg_color         =
+            //  =====================================================
+            $wp_customize->add_setting('setting_form_button_bg_color', [
+                'default' => '#9bbca9',
+                'sanitize_callback' => 'sanitize_hex_color',
+            ]);
+
+            $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_button_bg_color', [
+                'label' => __('Button background color', self::$text_domain),
+                'section' => $this->section_handle,
+                'settings' => 'setting_form_button_bg_color',
             ]));
 
             //  =====================================================
@@ -128,20 +174,6 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
                 'label' => __('Button text color', self::$text_domain),
                 'section' => $this->section_handle,
                 'settings' => 'setting_form_button_text_color',
-            ]));
-
-            //  =====================================================
-            //  = Color Picker : setting_form_primary_color         =
-            //  =====================================================
-            $wp_customize->add_setting('setting_form_primary_color', [
-                'default' => '#293550',
-                'sanitize_callback' => 'sanitize_hex_color',
-            ]);
-
-            $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_primary_color', [
-                'label' => __('Button background color', self::$text_domain),
-                'section' => $this->section_handle,
-                'settings' => 'setting_form_primary_color',
             ]));
 
             //  =====================================================
@@ -163,24 +195,6 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ));
 
             //  =====================================================
-            //  = Select : setting_form_border_radius    =
-            //  =====================================================
-            $wp_customize->add_setting('setting_form_border_radius', ['default' => '']);
-            $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_form_border_radius', [
-                    'label' => __('Form border radius', self::$text_domain),
-                    'section' => $this->section_handle,
-                    'settings' => 'setting_form_border_radius',
-                    'type' => 'select',
-                    'choices' => [
-                        '0px' => 'none',
-                        '5px' => 'Small',
-                        '10px' => 'Medium',
-                        '20px' => 'Large',
-                    ]
-                ]
-            ));
-
-            //  =====================================================
             //  = Color Picker : setting_form_input_border_color    =
             //  =====================================================
             $wp_customize->add_setting('setting_form_input_border_color', [
@@ -189,7 +203,7 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]);
 
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_input_border_color', [
-                'label' => __('Input field color', self::$text_domain),
+                'label' => __('Input border color', self::$text_domain),
                 'section' => $this->section_handle,
                 'settings' => 'setting_form_input_border_color',
             ]));
@@ -199,7 +213,7 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             //  =====================================================
             $wp_customize->add_setting('setting_form_input_border_width', ['default' => '1px']);
             $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'setting_form_input_border_width', [
-                    'label' => __('Input field border width', self::$text_domain),
+                    'label' => __('Input border width', self::$text_domain),
                     'section' => $this->section_handle,
                     'settings' => 'setting_form_input_border_width',
                     'type' => 'select',
@@ -253,7 +267,7 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             ]);
 
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'setting_form_link_color', [
-                'label' => __('External Link color', self::$text_domain),
+                'label' => __('Link color', self::$text_domain),
                 'description' => __('"Lost your password?" and "← Back to Site" links', self::$text_domain),
                 'section' => $this->section_handle,
                 'settings' => 'setting_form_link_color',
