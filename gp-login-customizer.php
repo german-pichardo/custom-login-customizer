@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Gp Login Customizer
  * Description: Change default login URL, Title, Styles, Logo, etc. Go to : Appearance -> Themes -> Customize -> Login page
- * Version: 1.0.1
+ * Version: 1.2.0
  * Author: German Pichardo
  * Author URI: http://www.german-pichardo.com
  * Text Domain: custom-login-settings
