@@ -14,15 +14,6 @@ if (!class_exists(' GpLoginCustomizerFront')) {
             add_action('login_headertitle', [$this, 'logo_title']);
             add_action('login_errors', [$this, 'error_message']);
             add_action('login_head', [$this, 'login_head']);
-
-            add_filter('admin_body_class', [$this, 'custom_class']);
-
-        }
-
-        public static function custom_class($classes)
-        {
-            // Or:
-            return "$classes my_class_1 my_class_2 my_class_3";
         }
 
         // Change default url link wordpress.org from logo
@@ -73,8 +64,11 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                     }
 
                     body.login #login {
-                        width:            360px;
                         background-color: #fff;
+                    }
+
+                    body.login:not(.interim-login) #login {
+                        width: 360px;
                     }
 
                     <?php self::generate_css('body.login #login', 'background-color', 'setting_form_background_color', '#ffffff'); ?>
@@ -100,20 +94,20 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                     body.login .message,
                     body.login #login_error {
                         margin-left:  auto !important;
-                        margin-right: auto;
+                        margin-right: auto !important;
                         max-width:    80%;
                     }
 
                     @media screen and (min-width: 768px) {
-                        body.login #login {
+                        body.login:not(.interim-login) #login {
                             min-height: 100%;
                         }
 
-                        .login.form-align-left #login {
+                        .login.form-align-left:not(.interim-login) #login {
                             margin-left: 0;
                         }
 
-                        .login.form-align-right #login {
+                        .login.form-align-right:not(.interim-login) #login {
                             margin-right: 0;
                         }
                     }
