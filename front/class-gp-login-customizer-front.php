@@ -128,7 +128,7 @@ if (!class_exists(' GpLoginCustomizerFront')) {
             $logo_image = get_theme_mod('setting_logo_image');
 
             if ($logo_image && !empty($logo_image)) {
-                $logo_image_size = getimagesize($logo_image);
+                $logo_image_size = getimagesize(self::get_local_path($logo_image));
                 $logo_image_width = $logo_image_size[0];
                 $logo_image_height = $logo_image_size[1];
 
@@ -292,6 +292,14 @@ if (!class_exists(' GpLoginCustomizerFront')) {
             return $return;
         }
 
+        public static function get_local_path($url)
+        {
+            return sprintf(
+                '%s/%s',
+                wp_get_upload_dir()['basedir'],
+                explode('/uploads/', $url)[1]
+            );
+        }
     }
 
 }
