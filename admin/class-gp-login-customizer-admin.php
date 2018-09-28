@@ -92,7 +92,7 @@ if (!class_exists(' GpLoginCustomizerAdmin')) {
             //  = Image Upload    setting_login_body_background_image          =
             //  =====================================================
             $wp_customize->add_setting('setting_login_body_background_image', [
-                'default' => has_site_icon() ? get_site_icon_url(150) : '',
+                'default' => '',
             ]);
 
             $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'setting_login_body_background_image', [
