@@ -294,11 +294,7 @@ if (!class_exists(' GpLoginCustomizerFront')) {
 
         public static function get_local_path($url)
         {
-            return sprintf(
-                '%s/%s',
-                wp_get_upload_dir()['basedir'],
-                explode('/uploads/', $url)[1]
-            );
+            return path_join( wp_get_upload_dir()['path'], wp_basename($url) );
         }
     }
 
