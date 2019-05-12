@@ -11,7 +11,7 @@ if (!class_exists(' GpLoginCustomizerFront')) {
         public function __construct()
         {
             add_action('login_headerurl', [$this, 'logo_url']);
-            add_action('login_headertitle', [$this, 'logo_title']);
+            add_action('login_headertext', [$this, 'logo_title']);
             add_action('login_errors', [$this, 'error_message']);
             add_action('login_head', [$this, 'login_head']);
         }
@@ -133,7 +133,7 @@ if (!class_exists(' GpLoginCustomizerFront')) {
                 $logo_image_height = $logo_image_size[1];
 
                 $is_ratio_69 = $logo_image_width > $logo_image_height;
-                
+
                 $logo_background_size = $is_ratio_69 ? '50%% auto' : (is_array($logo_image_size) ? $logo_image_width < 160 ? 'auto': ' auto 80%%' : 'contain');
                 $logo_padding_top = $is_ratio_69 ? '56.25%%' : '75%%';
                 $logo_container_width = is_array($logo_image_size) ? '100%%' : '60%%'; ?>
