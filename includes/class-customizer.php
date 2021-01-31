@@ -11,7 +11,6 @@ namespace GP\GP_Login_Customizer;
  * Class Customizer
  */
 class Customizer {
-	const SECTION = 'custom_login_section';
 	/**
 	 * Initialize admin-related functionality.
 	 *
@@ -27,10 +26,18 @@ class Customizer {
 	 * @param \WP_Customize_Manager $wp_customize Theme Customizer object.
 	 */
 	public function register_settings( $wp_customize ) {
+		$section         = Info::SECTION_CUSTOMIZER;
+		$spacing_choices = array(
+			'0px'  => __( 'none', 'gp' ),
+			'5px'  => __( 'Small', 'gp' ),
+			'10px' => __( 'Medium', 'gp' ),
+			'20px' => __( 'Large', 'gp' ),
+		);
+
 		$wp_customize->add_section(
-			self::SECTION,
+			$section,
 			array(
-				'title'    => __( 'Login Customizer', 'gp' ),
+				'title'    => Info::get_plugin_title(),
 				'priority' => 35,
 			)
 		);
@@ -42,7 +49,7 @@ class Customizer {
 				'setting_login_type',
 				array(
 					'label'    => __( 'Form style', 'gp' ),
-					'section'  => self::SECTION,
+					'section'  => $section,
 					'settings' => 'setting_login_type',
 					'type'     => 'select',
 					'choices'  => array(
@@ -69,7 +76,7 @@ class Customizer {
 				array(
 					'label'       => __( 'Login logo', 'gp' ),
 					'description' => __( 'Transparent png minimum 150px', 'gp' ),
-					'section'     => self::SECTION,
+					'section'     => $section,
 					'settings'    => 'setting_logo_image',
 				)
 			)
@@ -89,7 +96,7 @@ class Customizer {
 				'setting_login_body_background',
 				array(
 					'label'    => __( 'Body background color', 'gp' ),
-					'section'  => self::SECTION,
+					'section'  => $section,
 					'settings' => 'setting_login_body_background',
 				)
 			)
@@ -109,7 +116,7 @@ class Customizer {
 				array(
 					'label'       => __( 'Body background image', 'gp' ),
 					'description' => '',
-					'section'     => self::SECTION,
+					'section'     => $section,
 					'settings'    => 'setting_login_body_background_image',
 				)
 			)
@@ -129,7 +136,7 @@ class Customizer {
 				'setting_form_background_color',
 				array(
 					'label'    => __( 'Form background Color', 'gp' ),
-					'section'  => self::SECTION,
+					'section'  => $section,
 					'settings' => 'setting_form_background_color',
 				)
 			)
@@ -149,7 +156,7 @@ class Customizer {
 				'setting_form_text_color',
 				array(
 					'label'    => __( 'Form text Color', 'gp' ),
-					'section'  => self::SECTION,
+					'section'  => $section,
 					'settings' => 'setting_form_text_color',
 				)
 			)
@@ -162,15 +169,10 @@ class Customizer {
 				'setting_form_border_radius',
 				array(
 					'label'    => __( 'Form border radius', 'gp' ),
-					'section'  => self::SECTION,
+					'section'  => $section,
 					'settings' => 'setting_form_border_radius',
 					'type'     => 'select',
-					'choices'  => array(
-						'0px'  => 'none',
-						'5px'  => 'Small',
-						'10px' => 'Medium',
-						'20px' => 'Large',
-					),
+					'choices'  => $spacing_choices,
 				)
 			)
 		);
@@ -189,7 +191,7 @@ class Customizer {
 				'setting_form_button_bg_color',
 				array(
 					'label'    => __( 'Button background color', 'gp' ),
-					'section'  => self::SECTION,
+					'section'  => $section,
 					'settings' => 'setting_form_button_bg_color',
 				)
 			)
@@ -209,7 +211,7 @@ class Customizer {
 				'setting_form_button_text_color',
 				array(
 					'label'    => __( 'Button text color', 'gp' ),
-					'section'  => self::SECTION,
+					'section'  => $section,
 					'settings' => 'setting_form_button_text_color',
 				)
 			)
@@ -222,15 +224,10 @@ class Customizer {
 				'setting_button_border_radius',
 				array(
 					'label'    => __( 'Button border radius', 'gp' ),
-					'section'  => self::SECTION,
+					'section'  => $section,
 					'settings' => 'setting_button_border_radius',
 					'type'     => 'select',
-					'choices'  => array(
-						'0px'  => __( 'none', 'gp' ),
-						'5px'  => __( 'Small', 'gp' ),
-						'10px' => __( 'Medium', 'gp' ),
-						'20px' => __( 'Large', 'gp' ),
-					),
+					'choices'  => $spacing_choices,
 				)
 			)
 		);
@@ -249,7 +246,7 @@ class Customizer {
 				'setting_form_input_border_color',
 				array(
 					'label'    => __( 'Input border color', 'gp' ),
-					'section'  => self::SECTION,
+					'section'  => $section,
 					'settings' => 'setting_form_input_border_color',
 				)
 			)
@@ -262,7 +259,7 @@ class Customizer {
 				'setting_form_input_border_width',
 				array(
 					'label'    => __( 'Input border width', 'gp' ),
-					'section'  => self::SECTION,
+					'section'  => $section,
 					'settings' => 'setting_form_input_border_width',
 					'type'     => 'select',
 					'choices'  => array(
@@ -281,15 +278,10 @@ class Customizer {
 				'setting_form_input_border_radius',
 				array(
 					'label'    => __( 'Input border radius', 'gp' ),
-					'section'  => self::SECTION,
+					'section'  => $section,
 					'settings' => 'setting_form_input_border_radius',
 					'type'     => 'select',
-					'choices'  => array(
-						'0px'  => __( 'none', 'gp' ),
-						'5px'  => __( 'Small', 'gp' ),
-						'10px' => __( 'Medium', 'gp' ),
-						'20px' => __( 'Large', 'gp' ),
-					),
+					'choices'  => $spacing_choices,
 				)
 			)
 		);
@@ -309,7 +301,7 @@ class Customizer {
 				array(
 					'label'       => __( 'Secondary color', 'gp' ),
 					'description' => __( 'Messages border and Checkbox', 'gp' ),
-					'section'     => self::SECTION,
+					'section'     => $section,
 					'settings'    => 'setting_form_secondary_color',
 
 				)
@@ -331,7 +323,7 @@ class Customizer {
 				array(
 					'label'       => __( 'Link color', 'gp' ),
 					'description' => __( '"Lost your password?" and "← Back to Site" links', 'gp' ),
-					'section'     => self::SECTION,
+					'section'     => $section,
 					'settings'    => 'setting_form_link_color',
 				)
 			)
@@ -349,7 +341,7 @@ class Customizer {
 			array(
 				'label'       => __( 'Error message', 'gp' ),
 				'description' => __( 'For security reasons it\'s better to insert a generic message instead of precising "Invalid username" or "Invalid password".', 'gp' ),
-				'section'     => self::SECTION,
+				'section'     => $section,
 				'settings'    => 'setting_error_message',
 				'type'        => 'text',
 
@@ -367,7 +359,7 @@ class Customizer {
 			'setting_additional_css',
 			array(
 				'label'       => __( 'Additional CSS', 'gp' ),
-				'section'     => self::SECTION,
+				'section'     => $section,
 				'settings'    => 'setting_additional_css',
 				'type'        => 'textarea',
 				'input_attrs' => array(

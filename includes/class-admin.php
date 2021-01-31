@@ -11,9 +11,6 @@ namespace GP\GP_Login_Customizer;
  * Class Admin
  */
 class Admin {
-
-	const SECTION = 'custom_login_section';
-
 	/**
 	 * Initialize admin-related functionality.
 	 *
@@ -31,7 +28,7 @@ class Admin {
 			return; // Do not use in main_network.
 		}
 
-		$menu_slug_url = 'customize.php?autofocus[section]=' . self::SECTION . '';
+		$menu_slug_url = 'customize.php?autofocus[section]=' . Info::SECTION_CUSTOMIZER . '';
 		// We add simple autoFocus in multiSite.
 		// todo: Url redirection do not play well.
 		if ( ! is_multisite() ) {
@@ -39,9 +36,9 @@ class Admin {
 		}
 
 		add_theme_page(
-			__( 'Login Customizer', 'gp' ),
-			__( 'Login Customizer', 'gp' ),
-			'manage_options',
+			Info::get_plugin_title(),
+			Info::get_plugin_title(),
+			Info::CAPACITY,
 			'' . $menu_slug_url . ''
 		);
 	}

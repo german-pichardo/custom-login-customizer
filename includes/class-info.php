@@ -21,18 +21,18 @@ class Info {
 	const PLUGIN_SLUG = 'gp-login-customizer';
 
 	/**
-	 * Table namespace in database
-	 *
-	 * @var string
-	 */
-	const DB_NAMESPACE = 'gp_lc';
-
-	/**
 	 * Role Capacity
 	 *
 	 * @var string
 	 */
-	const CAPACITY = 'edit_pages';
+	const CAPACITY = 'manage_options';
+
+	/**
+	 * Section name
+	 *
+	 * @var string
+	 */
+	const SECTION_CUSTOMIZER = 'custom_login_section';
 
 	/**
 	 * Plugin name in extensions
@@ -66,16 +66,7 @@ class Info {
 	 * @return string
 	 */
 	public static function get_path() {
-		return GP_LOGIN_CUSTOMIZER_NR_DIR . 'plugin.php';
-	}
-
-	/**
-	 * Plugin version
-	 *
-	 * @return mixed
-	 */
-	public static function get_plugin_version() {
-		return self::get_plugin_data();
+		return GP_LOGIN_CUSTOMIZER_NR_DIR . self::get_plugin_slug() . '.php';
 	}
 
 	/**
@@ -85,14 +76,5 @@ class Info {
 	 */
 	public static function get_plugin_slug() {
 		return self::PLUGIN_SLUG;
-	}
-
-	/**
-	 * DB prefix name
-	 *
-	 * @return string
-	 */
-	public static function get_option_namespace() {
-		return self::DB_NAMESPACE;
 	}
 }
