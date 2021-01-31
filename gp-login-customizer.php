@@ -1,16 +1,34 @@
 <?php
 /**
- * Plugin Name: Gp Login Customizer
- * Description: Change default login URL, Title, Styles, Logo, etc. Go to : Appearance -> Themes -> Customize -> Login page
- * Version: 1.2.5
- * Author: German Pichardo
- * Author URI: http://www.german-pichardo.com
- * Text Domain: custom-login-settings
+ * Plugin Name:       Gp Login Customizer
+ * Description:       Change default login page, Title, Styles, Logo, etc.
+ * Version:           2.0.0
+ * Author:            German Pichardo
+ * Text Domain:       gp
+ * Domain Path:       /languages
+ *
+ * @package   GP\GP_Login_Customizer
+ * @link      https://github.com/german-pichardo/gp-login-customizer
  */
-// If this file is called directly, abort.
-if (!defined('ABSPATH')) {
-    die;
+
+namespace GP\GP_Login_Customizer;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-require_once plugin_dir_path(__FILE__) . 'admin/class-gp-login-customizer-admin.php'; // Admin
-require_once plugin_dir_path(__FILE__) . 'front/class-gp-login-customizer-front.php'; // Front
+define( 'GP_LOGIN_CUSTOMIZER_NR_DIR', plugin_dir_path( __FILE__ ) );
+define( 'GP_LOGIN_CUSTOMIZER_NR_URL', plugin_dir_URL( __FILE__ ) );
+
+// Plugin Global information.
+require_once GP_LOGIN_CUSTOMIZER_NR_DIR . 'includes/class-info.php';
+
+/**
+ * Begins execution of the plugin.
+ */
+function run_init() {
+	include_once GP_LOGIN_CUSTOMIZER_NR_DIR . 'includes/class-init.php';
+	new Init();
+}
+
+run_init();

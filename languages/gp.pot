@@ -1,0 +1,218 @@
+# Copyright (C) 2020 German Pichardo
+# This file is distributed under the same license as the Apicil Nitro résiliation plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Apicil Nitro résiliation 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gp-login-customizer\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-09-02T15:09:11+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.2.0\n"
+"X-Domain: apicil\n"
+
+#. Plugin Name of the plugin
+msgid "Apicil Nitro résiliation"
+msgstr ""
+
+#. Description of the plugin
+msgid "Formulaire de demande de résiliation."
+msgstr ""
+
+#. Author of the plugin
+msgid "German Pichardo"
+msgstr ""
+
+#: admin/class-admin.php:48
+msgid "Settings"
+msgstr ""
+
+#: admin/class-admin.php:65
+msgid "Actions"
+msgstr ""
+
+#: admin/class-admin.php:84
+msgid "Send to Web service"
+msgstr ""
+
+#: admin/template-parts/email.php:17
+msgid "Bonjour,"
+msgstr ""
+
+#: admin/template-parts/email.php:20
+msgid "Les demandes de résiliations suivantes contiennent des erreurs et n'ont pu etre envoyées :"
+msgstr ""
+
+#: admin/template-parts/email.php:37
+msgid "Si vous consideré que la demande a été envoyée au service concerné, vous pouvez changer le statut à \"fermé\" pour plus recevoir des alerts."
+msgstr ""
+
+#: admin/template-parts/email.php:42
+msgid "Voir la liste de toutes les demandes de rétiliations :"
+msgstr ""
+
+#: ajax/class-ajax-send-to-web-service.php:64
+#: ajax/class-ajax-tiers.php:52
+msgid "Nonce invalid"
+msgstr ""
+
+#: ajax/class-ajax-send-to-web-service.php:69
+msgid "Not enough privileges"
+msgstr ""
+
+#: ajax/class-ajax-send-to-web-service.php:80
+msgid "« La demande a été envoyée avec succès au service concerné. ». Code : (%s)"
+msgstr ""
+
+#: ajax/class-ajax-send-to-web-service.php:82
+msgid "« Suite à une erreur du web service, l'action demandée n'a pas pu être effectuée ». Code : (%s)"
+msgstr ""
+
+#: ajax/class-ajax-tiers.php:87
+msgid "Unable to load file"
+msgstr ""
+
+#: ajax/class-ajax-tiers.php:90
+msgid "Unable to submit this form, please try again."
+msgstr ""
+
+#: front/class-front.php:56
+msgid "« Vous venez de remplir un formulaire de résiliation. Souhaitez vous valider cette demande ? » Lors de la validation du formulaire, un message de confirmation sera envoyé au mail renseigné."
+msgstr ""
+
+#: front/class-front.php:57
+msgid "« Veuillez entrer un numero de SIRET valide. »"
+msgstr ""
+
+#: front/template-parts/form/fields/field-numeros-contrats.php:36
+msgid "Ajouter un contrat"
+msgstr ""
+
+#: front/template-parts/form/fields/field-pieces-jointes.php:26
+msgid "Ajouter une pièce jointe"
+msgstr ""
+
+#: front/template-parts/form/fields/fields-pm.php:15
+msgid "Entreprise"
+msgstr ""
+
+#: front/template-parts/form/fields/fields-pp.php:15
+msgid "Particulier"
+msgstr ""
+
+#: front/template-parts/form/fields/fields-tier.php:14
+msgid "Tiers"
+msgstr ""
+
+#: front/template-parts/form/fields/fields-tiers-autre.php:19
+msgid "Autre"
+msgstr ""
+
+#: front/template-parts/form/fields/fields-tiers-autre.php:32
+msgid "A renseigner si résiliation d'un particulier"
+msgstr ""
+
+#: front/template-parts/form/fields/fields-tiers-autre.php:38
+msgid "et"
+msgstr ""
+
+#: front/template-parts/form/fields/fields-tiers-autre.php:48
+msgid "Ou"
+msgstr ""
+
+#: front/template-parts/form/fields/fields-tiers-autre.php:49
+msgid "A renseigner si résiliation d'une entreprise"
+msgstr ""
+
+#: front/template-parts/form/form-errors.php:12
+msgid "Veuillez corriger les erreurs suivantes :"
+msgstr ""
+
+#: front/template-parts/form/form-profile.php:21
+#: front/template-parts/form/form-resiliation.php:62
+msgid "Valider"
+msgstr ""
+
+#: front/template-parts/form/form-save.php:73
+msgid "Votre demande a bien été réceptionnée et transmise au service concerné pour analyse."
+msgstr ""
+
+#. translators: 1: Plugin name.
+#: helpers/class-pre-requisite.php:41
+msgid "The required plugin %s is not installed or activated"
+msgstr ""
+
+#: includes/class-activator.php:56
+msgid "Nitro Manager"
+msgstr ""
+
+#: managers/class-cronjob-handler.php:73
+msgid "Apicil Nitro Resiliation : Web service errors."
+msgstr ""
+
+#: repositories/class-lead-post.php:285
+msgctxt "Post type general name"
+msgid "Demandes de résiliation"
+msgstr ""
+
+#: repositories/class-lead-post.php:286
+msgctxt "Post type singular name"
+msgid "Demande de résiliation"
+msgstr ""
+
+#: repositories/class-lead-post.php:334
+msgctxt "taxonomy general name"
+msgid "Type"
+msgstr ""
+
+#: repositories/class-lead-post.php:335
+msgctxt "taxonomy singular name"
+msgid "Type"
+msgstr ""
+
+#: repositories/class-lead-post.php:352
+msgctxt "taxonomy general name"
+msgid "Profile"
+msgstr ""
+
+#: repositories/class-lead-post.php:353
+msgctxt "taxonomy singular name"
+msgid "Profile"
+msgstr ""
+
+#: repositories/class-lead-post.php:369
+msgctxt "taxonomy general name"
+msgid "Response code origin"
+msgstr ""
+
+#: repositories/class-lead-post.php:370
+msgctxt "taxonomy singular name"
+msgid "Response code origin"
+msgstr ""
+
+#: repositories/class-lead-post.php:386
+msgctxt "taxonomy general name"
+msgid "Statut"
+msgstr ""
+
+#: repositories/class-lead-post.php:387
+msgctxt "taxonomy singular name"
+msgid "Statut"
+msgstr ""
+
+#: repositories/class-lead-post.php:404
+msgctxt "taxonomy general name"
+msgid "Response code"
+msgstr ""
+
+#: repositories/class-lead-post.php:405
+msgctxt "taxonomy singular name"
+msgid "Response code"
+msgstr ""
+
+#: services/class-api-file-manager.php:78
+msgid "Not file found."
+msgstr ""
