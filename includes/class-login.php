@@ -81,7 +81,7 @@ class Login {
 	 * @param array $classes An array of body classes.
 	 */
 	public function login_body_class( $classes ) {
-		$classes[] = get_theme_mod( 'setting_login_type', '' );
+		$classes[] =  get_theme_mod( 'setting_login_type', '' );
 
 		return $classes;
 	}
