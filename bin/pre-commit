@@ -56,45 +56,6 @@ if [ -n "$files" ]; then
   done
 fi
 
-# Fetch all changed js files
-files=$(git diff --cached --name-only --diff-filter=ACMR HEAD | grep '\.js$')
-if [ -n "$files" ]; then
-
-  message_info "Checking Javascript Files. . ."
-  echo
-
-  for file in $files; do
-    message_info "Running JS coding standards..."
-    npm run lint:js ${file}
-    # If errors
-    if [[ $? != 0 ]]; then
-      message_aborting "$file contains javascript syntax errors"
-      errors=("${errors[@]}" "$file")
-    else
-      npm run lint:js:fix ${file}
-    fi
-  done
-fi
-
-# fetch all changed css files and validate them
-files=$(git diff --cached --name-only --diff-filter=ACMR HEAD | grep -E '\.s(c|a)ss$')
-if [ -n "$files" ]; then
-
-  message_info "Checking SCSS Files. . ."
-
-  for file in $files; do
-    message_info "Running Scss coding standards"
-    npm run lint:style ${file}
-    # if errors
-    if [[ $? != 0 ]]; then
-      message_aborting "$file contains scss syntax errors"
-      errors=("${errors[@]}" "$file")
-    else
-      npm run lint:style:fix ${file}
-    fi
-  done
-fi
-
 # if we have errors, exit with 1
 if [ -n "$errors" ]; then
   for error in "${errors[@]}"; do
