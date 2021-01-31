@@ -13,7 +13,6 @@
 #    Log files     #
 #==================#
 *.log
-*.log
 error_log
 access_log
 
