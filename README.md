@@ -9,16 +9,6 @@ Change default login URL, Title, Styles, Logo, etc. Go to : Appearance -> Themes
 - Upload the folder to the `/wp-content/plugins/` directory.
 - Activate the plugin through the 'Plugins' menu in WordPress.
 
-### Installation local
-
-Clone project :
-
-```bash
-cd wp-content/plugins
-git clone git@github.com:german-pichardo/gp-login-customizer.git
-cd gp-login-customizer
-```
-
 ### Install using composer
 
 Add to your composer.json
@@ -32,9 +22,20 @@ Add to your composer.json
     }
 ],
 ```
+
 Run 
 ```bash
 composer require gp/gp-login-customizer
+```
+
+### Installation alternative in local
+
+Clone project :
+
+```bash
+cd wp-content/plugins
+git clone git@github.com:german-pichardo/gp-login-customizer.git
+cd gp-login-customizer
 ```
 
 ### Development and Coding standards
