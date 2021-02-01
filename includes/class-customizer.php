@@ -12,7 +12,7 @@ namespace GP\GP_Login_Customizer;
  */
 class Customizer {
 	/**
-	 * Initialize admin-related functionality.
+	 * Initialize customizer-related functionality.
 	 *
 	 * @return void
 	 */
@@ -28,10 +28,10 @@ class Customizer {
 	public function register_settings( $wp_customize ) {
 		$section         = Info::SECTION_CUSTOMIZER;
 		$spacing_choices = array(
-			'0px'  => __( 'none', 'gp' ),
-			'5px'  => __( 'Small', 'gp' ),
-			'10px' => __( 'Medium', 'gp' ),
-			'20px' => __( 'Large', 'gp' ),
+			'0px'  => esc_html__( 'none', 'gp' ),
+			'5px'  => esc_html__( 'Small', 'gp' ),
+			'10px' => esc_html__( 'Medium', 'gp' ),
+			'20px' => esc_html__( 'Large', 'gp' ),
 		);
 
 		$wp_customize->add_section(
@@ -48,15 +48,15 @@ class Customizer {
 				$wp_customize,
 				'setting_login_type',
 				array(
-					'label'    => __( 'Form style', 'gp' ),
+					'label'    => esc_html__( 'Form style', 'gp' ),
 					'section'  => $section,
 					'settings' => 'setting_login_type',
 					'type'     => 'select',
 					'choices'  => array(
-						''                  => __( 'Default wordpress style', 'gp' ),
-						'form-align-center' => __( 'Form align center', 'gp' ),
-						'form-align-left'   => __( 'Form align left', 'gp' ),
-						'form-align-right'  => __( 'Form align right', 'gp' ),
+						''                  => esc_html__( 'Default wordpress style', 'gp' ),
+						'form-align-center' => esc_html__( 'Form align center', 'gp' ),
+						'form-align-left'   => esc_html__( 'Form align left', 'gp' ),
+						'form-align-right'  => esc_html__( 'Form align right', 'gp' ),
 					),
 				)
 			)
@@ -74,8 +74,8 @@ class Customizer {
 				$wp_customize,
 				'setting_logo_image',
 				array(
-					'label'       => __( 'Login logo', 'gp' ),
-					'description' => __( 'Transparent png minimum 150px', 'gp' ),
+					'label'       => esc_html__( 'Login logo', 'gp' ),
+					'description' => esc_html__( 'Transparent png minimum 150px', 'gp' ),
 					'section'     => $section,
 					'settings'    => 'setting_logo_image',
 				)
@@ -95,7 +95,7 @@ class Customizer {
 				$wp_customize,
 				'setting_login_body_background',
 				array(
-					'label'    => __( 'Body background color', 'gp' ),
+					'label'    => esc_html__( 'Body background color', 'gp' ),
 					'section'  => $section,
 					'settings' => 'setting_login_body_background',
 				)
@@ -114,7 +114,7 @@ class Customizer {
 				$wp_customize,
 				'setting_login_body_background_image',
 				array(
-					'label'       => __( 'Body background image', 'gp' ),
+					'label'       => esc_html__( 'Body background image', 'gp' ),
 					'description' => '',
 					'section'     => $section,
 					'settings'    => 'setting_login_body_background_image',
@@ -135,7 +135,7 @@ class Customizer {
 				$wp_customize,
 				'setting_form_background_color',
 				array(
-					'label'    => __( 'Form background Color', 'gp' ),
+					'label'    => esc_html__( 'Form background Color', 'gp' ),
 					'section'  => $section,
 					'settings' => 'setting_form_background_color',
 				)
@@ -155,7 +155,7 @@ class Customizer {
 				$wp_customize,
 				'setting_form_text_color',
 				array(
-					'label'    => __( 'Form text Color', 'gp' ),
+					'label'    => esc_html__( 'Form text Color', 'gp' ),
 					'section'  => $section,
 					'settings' => 'setting_form_text_color',
 				)
@@ -168,7 +168,7 @@ class Customizer {
 				$wp_customize,
 				'setting_form_border_radius',
 				array(
-					'label'    => __( 'Form border radius', 'gp' ),
+					'label'    => esc_html__( 'Form border radius', 'gp' ),
 					'section'  => $section,
 					'settings' => 'setting_form_border_radius',
 					'type'     => 'select',
@@ -190,7 +190,7 @@ class Customizer {
 				$wp_customize,
 				'setting_form_button_bg_color',
 				array(
-					'label'    => __( 'Button background color', 'gp' ),
+					'label'    => esc_html__( 'Button background color', 'gp' ),
 					'section'  => $section,
 					'settings' => 'setting_form_button_bg_color',
 				)
@@ -210,7 +210,7 @@ class Customizer {
 				$wp_customize,
 				'setting_form_button_text_color',
 				array(
-					'label'    => __( 'Button text color', 'gp' ),
+					'label'    => esc_html__( 'Button text color', 'gp' ),
 					'section'  => $section,
 					'settings' => 'setting_form_button_text_color',
 				)
@@ -223,7 +223,7 @@ class Customizer {
 				$wp_customize,
 				'setting_button_border_radius',
 				array(
-					'label'    => __( 'Button border radius', 'gp' ),
+					'label'    => esc_html__( 'Button border radius', 'gp' ),
 					'section'  => $section,
 					'settings' => 'setting_button_border_radius',
 					'type'     => 'select',
@@ -245,7 +245,7 @@ class Customizer {
 				$wp_customize,
 				'setting_form_input_border_color',
 				array(
-					'label'    => __( 'Input border color', 'gp' ),
+					'label'    => esc_html__( 'Input border color', 'gp' ),
 					'section'  => $section,
 					'settings' => 'setting_form_input_border_color',
 				)
@@ -258,7 +258,7 @@ class Customizer {
 				$wp_customize,
 				'setting_form_input_border_width',
 				array(
-					'label'    => __( 'Input border width', 'gp' ),
+					'label'    => esc_html__( 'Input border width', 'gp' ),
 					'section'  => $section,
 					'settings' => 'setting_form_input_border_width',
 					'type'     => 'select',
@@ -277,7 +277,7 @@ class Customizer {
 				$wp_customize,
 				'setting_form_input_border_radius',
 				array(
-					'label'    => __( 'Input border radius', 'gp' ),
+					'label'    => esc_html__( 'Input border radius', 'gp' ),
 					'section'  => $section,
 					'settings' => 'setting_form_input_border_radius',
 					'type'     => 'select',
@@ -299,8 +299,8 @@ class Customizer {
 				$wp_customize,
 				'setting_form_secondary_color',
 				array(
-					'label'       => __( 'Secondary color', 'gp' ),
-					'description' => __( 'Messages border and Checkbox', 'gp' ),
+					'label'       => esc_html__( 'Secondary color', 'gp' ),
+					'description' => esc_html__( 'Messages border and Checkbox', 'gp' ),
 					'section'     => $section,
 					'settings'    => 'setting_form_secondary_color',
 
@@ -321,8 +321,8 @@ class Customizer {
 				$wp_customize,
 				'setting_form_link_color',
 				array(
-					'label'       => __( 'Link color', 'gp' ),
-					'description' => __( '"Lost your password?" and "← Back to Site" links', 'gp' ),
+					'label'       => esc_html__( 'Link color', 'gp' ),
+					'description' => esc_html__( '"Lost your password?" and "← Back to Site" links', 'gp' ),
 					'section'     => $section,
 					'settings'    => 'setting_form_link_color',
 				)
@@ -332,15 +332,15 @@ class Customizer {
 		$wp_customize->add_setting(
 			'setting_error_message',
 			array(
-				'default' => __( 'ERROR: Incorrect login details.', 'gp' ),
+				'default' => esc_html__( 'ERROR: Incorrect login details.', 'gp' ),
 			)
 		);
 
 		$wp_customize->add_control(
 			'setting_error_message',
 			array(
-				'label'       => __( 'Error message', 'gp' ),
-				'description' => __( 'For security reasons it\'s better to insert a generic message instead of precising "Invalid username" or "Invalid password".', 'gp' ),
+				'label'       => esc_html__( 'Error message', 'gp' ),
+				'description' => esc_html__( 'For security reasons it\'s better to insert a generic message instead of precising "Invalid username" or "Invalid password".', 'gp' ),
 				'section'     => $section,
 				'settings'    => 'setting_error_message',
 				'type'        => 'text',
@@ -351,14 +351,14 @@ class Customizer {
 		$wp_customize->add_setting(
 			'setting_additional_css',
 			array(
-				'default' => __( '/*You can add your own CSS here.*/', 'gp' ),
+				'default' => esc_html__( '/*You can add your own CSS here.*/', 'gp' ),
 			)
 		);
 
 		$wp_customize->add_control(
 			'setting_additional_css',
 			array(
-				'label'       => __( 'Additional CSS', 'gp' ),
+				'label'       => esc_html__( 'Additional CSS', 'gp' ),
 				'section'     => $section,
 				'settings'    => 'setting_additional_css',
 				'type'        => 'textarea',
