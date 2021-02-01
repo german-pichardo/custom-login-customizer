@@ -12,7 +12,7 @@ namespace GP\GP_Login_Customizer;
  */
 class Customizer {
 	/**
-	 * Initialize admin-related functionality.
+	 * Initialize customizer-related functionality.
 	 *
 	 * @return void
 	 */
