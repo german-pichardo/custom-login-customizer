@@ -23,7 +23,7 @@ class Init {
 	 * Load all dependencies
 	 */
 	private function load_dependencies() {
-		$plugin_dir = GP_LOGIN_CUSTOMIZER_NR_DIR;
+		$plugin_dir = GP_LOGIN_CUSTOMIZER_DIR;
 
 		include_once $plugin_dir . 'includes/class-i18n.php';
 		include_once $plugin_dir . 'includes/class-admin.php';

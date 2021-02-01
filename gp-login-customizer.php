@@ -17,17 +17,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GP_LOGIN_CUSTOMIZER_NR_DIR', plugin_dir_path( __FILE__ ) );
-define( 'GP_LOGIN_CUSTOMIZER_NR_URL', plugin_dir_URL( __FILE__ ) );
+define( 'GP_LOGIN_CUSTOMIZER_DIR', plugin_dir_path( __FILE__ ) );
+define( 'GP_LOGIN_CUSTOMIZER_URL', plugin_dir_URL( __FILE__ ) );
 
 // Plugin Global information.
-require_once GP_LOGIN_CUSTOMIZER_NR_DIR . 'includes/class-info.php';
+require_once GP_LOGIN_CUSTOMIZER_DIR . 'includes/class-info.php';
 
 /**
  * Begins execution of the plugin.
  */
 function run_init() {
-	include_once GP_LOGIN_CUSTOMIZER_NR_DIR . 'includes/class-init.php';
+	include_once GP_LOGIN_CUSTOMIZER_DIR . 'includes/class-init.php';
 	new Init();
 }
 

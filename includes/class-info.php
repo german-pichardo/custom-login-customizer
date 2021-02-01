@@ -66,7 +66,7 @@ class Info {
 	 * @return string
 	 */
 	public static function get_path() {
-		return GP_LOGIN_CUSTOMIZER_NR_DIR . self::get_plugin_slug() . '.php';
+		return GP_LOGIN_CUSTOMIZER_DIR . self::get_plugin_slug() . '.php';
 	}
 
 	/**
