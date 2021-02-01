@@ -28,7 +28,7 @@ Run
 composer require gp/gp-login-customizer
 ```
 
-### Installation alternative in local
+### Or (local)
 
 Clone project :
 
