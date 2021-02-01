@@ -19,6 +19,24 @@ git clone git@github.com:german-pichardo/gp-login-customizer.git
 cd gp-login-customizer
 ```
 
+### Install using composer
+
+Add to your composer.json
+
+```
+"repositories": [
+   ...
+    {
+      "type": "vcs",
+      "url": "git@github.com:german-pichardo/gp-login-customizer.git"
+    }
+],
+```
+Run 
+```bash
+composer require gp/gp-login-customizer
+```
+
 ### Development and Coding standards
 
 Check [WordPress-Coding-Standards](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards) with [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer).
